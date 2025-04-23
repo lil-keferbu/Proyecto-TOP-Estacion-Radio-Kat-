@@ -33,6 +33,9 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         );
         jTableRegistroUnidad.setModel(model);
 
+        // Agregar ítems al combo box correctamente
+       // boxTipoUnidad.addItem("Propietario unico"); 
+       // boxTipoUnidad.addItem("Chofer externo");
     }
 
     /**
@@ -717,7 +720,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
 
     private void boxTipoUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxTipoUnidadActionPerformed
         // TODO add your handling code here:
-        // boxTipoUnidad.addItem("Propiario unico");
+        // boxTipoUnidad.addItem("Propietario  unico");
         // boxTipoUnidad.addItem("Chofer externo");
     }//GEN-LAST:event_boxTipoUnidadActionPerformed
 

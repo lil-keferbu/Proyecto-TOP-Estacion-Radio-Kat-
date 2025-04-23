@@ -42,8 +42,5 @@ public class LoginControlador {
         }
     }
 
-    /*public static void main(String[] agrs) {
-        LoginControlador conexion = new LoginControlador("datoslogin");
-        conexion.conectar();
-    }*/
+ 
 }

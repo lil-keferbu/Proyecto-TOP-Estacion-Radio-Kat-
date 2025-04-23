@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class UnidadDAO {
 
-    private final String URL = "jdbc:mysql://localhost:3310/radio_kat";
+    private final String URL = "jdbc:mysql://localhost:3310/registrounidades";
     private final String USER = "root";
     private final String PASSWORD = "";
 
@@ -183,5 +183,39 @@ public class UnidadDAO {
         }
     }
 
-   
+    //nuevos metodos 
+    public List<String> obtenerNombresPropietarios() {
+        List<String> nombres = new ArrayList<>();
+        String sql = "SELECT nombre FROM Propietario";
+
+        try (Connection conn = conectar(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                nombres.add(rs.getString("nombre"));
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener nombres de propietarios: " + ex.getMessage());
+        }
+
+        return nombres;
+    }
+
+    public List<String> obtenerNumerosComerciales() {
+        List<String> numeros = new ArrayList<>();
+        String sql = "SELECT numero_comercial FROM Unidad";
+
+        try (Connection conn = conectar(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                numeros.add(rs.getString("numero_comercial"));
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener números comerciales: " + ex.getMessage());
+        }
+
+        return numeros;
+    }
+
 }

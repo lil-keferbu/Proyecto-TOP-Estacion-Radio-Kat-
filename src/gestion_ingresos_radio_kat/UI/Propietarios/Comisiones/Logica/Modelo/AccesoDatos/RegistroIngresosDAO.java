@@ -5,11 +5,11 @@ import java.text.SimpleDateFormat;
 
 public class RegistroIngresosDAO {
 
-    private final String URL = "jdbc:mysql://localhost:3310/registroingresos";
+    private final String URL = "jdbc:mysql://localhost:3310/gestioningresos";
     private final String USER = "root";
     private final String PASSWORD = "";
 
-    public Connection conectar() throws SQLException {
+        public Connection conectar() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
@@ -38,5 +38,3 @@ public class RegistroIngresosDAO {
     }
 
 }
-
- 

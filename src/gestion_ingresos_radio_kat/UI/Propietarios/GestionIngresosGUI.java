@@ -34,6 +34,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
                 0
         );
         jTableGestionIngresos.setModel(model); // Asignar el modelo a la tabla
+        //jTableGestionIngresos.setModel(model); // Asignar el modelo a la tabla
 
     }
 

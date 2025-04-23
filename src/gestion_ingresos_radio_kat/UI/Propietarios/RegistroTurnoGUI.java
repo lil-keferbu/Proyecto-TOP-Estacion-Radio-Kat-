@@ -4,10 +4,18 @@
  */
 package gestion_ingresos_radio_kat.UI.Propietarios;
 
+import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.UnidadDAO;
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.ReportesGUI;
 import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,6 +30,42 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
      */
     public RegistroTurnoGUI() {
         initComponents();
+        cargarDatosPropietariosYComerciales(); // Agrega esta línea
+
+        // Configuración de jSHoraInicio con formato 12h AM/PM
+        SpinnerDateModel modelInicio = new SpinnerDateModel();
+        jSHoraInicio.setModel(modelInicio);
+        jSHoraInicio.setEditor(new JSpinner.DateEditor(jSHoraInicio, "hh:mm a"));
+
+// Configuración de jSHoraFin con formato 12h AM/PM
+        SpinnerDateModel modelFin = new SpinnerDateModel();
+        jSHoraFin.setModel(modelFin);
+        jSHoraFin.setEditor(new JSpinner.DateEditor(jSHoraFin, "hh:mm a"));
+
+        jTableRegistroTurno.setModel(new DefaultTableModel(
+                new Object[][]{},
+                new String[]{"Fecha Turno", "Hora Inicio", "Hora Finalizacion", "Nombre Propietario", "Numero Comercial"}
+        ));
+
+        //jTableGestionIngresos.setModel(model); // Asignar el modelo a la tabla
+    }
+
+    private void cargarDatosPropietariosYComerciales() {
+        UnidadDAO unidadDAO = new UnidadDAO();
+
+        // Limpiar combos por si acaso
+        boxNombrePropietario.removeAllItems();
+        boxNumeroComercial.removeAllItems();
+
+        // Llenar nombres de propietarios
+        for (String nombre : unidadDAO.obtenerNombresPropietarios()) {
+            boxNombrePropietario.addItem(nombre);
+        }
+
+        // Llenar números comerciales
+        for (String numero : unidadDAO.obtenerNumerosComerciales()) {
+            boxNumeroComercial.addItem(numero);
+        }
     }
 
     /**
@@ -53,13 +97,18 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
-        jSpinner3 = new javax.swing.JSpinner();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jSHoraInicio = new javax.swing.JSpinner();
+        jSHoraFin = new javax.swing.JSpinner();
+        JpFechaTurnoRegistro = new javax.swing.JSpinner();
+        boxNumeroComercial = new javax.swing.JComboBox<>();
+        boxNombrePropietario = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableRegistroTurno = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        btnBuscar = new javax.swing.JButton();
+        txtBusqueda = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnGuardarDatos = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         btnAsignarTurno = new javax.swing.JButton();
         btnLimpiarFormulario = new javax.swing.JButton();
@@ -283,50 +332,59 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Fecha Turno");
-        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 170, -1));
+        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 170, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Hora de Inicio ");
-        jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 170, -1));
+        jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 170, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Hora de Finalizacion");
-        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 170, -1));
+        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 170, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Numero Comercial");
-        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 170, -1));
+        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Nombre Chofer");
-        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 170, -1));
+        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 170, 30));
 
-        jSpinner1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jSpinner1.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.HOUR_OF_DAY));
-        jPanel8.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 170, -1));
+        jSHoraInicio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jSHoraInicio.setModel(new javax.swing.SpinnerNumberModel());
+        jPanel8.add(jSHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 170, -1));
 
-        jSpinner2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jSpinner2.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.HOUR_OF_DAY));
-        jPanel8.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 170, -1));
+        jSHoraFin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jPanel8.add(jSHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 170, -1));
 
-        jSpinner3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jSpinner3.setModel(new javax.swing.SpinnerDateModel());
-        jPanel8.add(jSpinner3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 170, -1));
+        JpFechaTurnoRegistro.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        JpFechaTurnoRegistro.setModel(new javax.swing.SpinnerDateModel());
+        jPanel8.add(JpFechaTurnoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 170, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 170, -1));
+        boxNumeroComercial.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        boxNumeroComercial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        boxNumeroComercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxNumeroComercialActionPerformed(evt);
+            }
+        });
+        jPanel8.add(boxNumeroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 390, 30));
 
-        jComboBox2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel8.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 170, -1));
+        boxNombrePropietario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        boxNombrePropietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        boxNombrePropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxNombrePropietarioActionPerformed(evt);
+            }
+        });
+        jPanel8.add(boxNombrePropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 340, -1));
 
-        jTable1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRegistroTurno.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jTableRegistroTurno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -334,7 +392,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Fecha Turno", "Hora inicio ", "Hora Finalizacion", "Unidad", "Chofer"
+                "Fecha Turno", "Hora inicio ", "Hora Finalizacion", "Nombre Propietario", "Numero Comercial "
             }
         ) {
             Class[] types = new Class [] {
@@ -345,21 +403,61 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableRegistroTurno);
 
-        jPanel8.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 234, 1002, 170));
+        jPanel8.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1002, 170));
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 1040, 430));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 34, 99, 33));
+
+        txtBusqueda.setBorder(null);
+        txtBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusquedaActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 34, 288, 33));
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 280, 20));
+
+        btnGuardarDatos.setText("Guardar datos ");
+        btnGuardarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarDatosActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnGuardarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 34, 130, 30));
+
+        jPanel8.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 980, 100));
+
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 1040, 510));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
         btnAsignarTurno.setBackground(new java.awt.Color(255, 255, 255));
         btnAsignarTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Asignar.png"))); // NOI18N
         btnAsignarTurno.setToolTipText("Asignar Turno");
+        btnAsignarTurno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarTurnoActionPerformed(evt);
+            }
+        });
 
         btnLimpiarFormulario.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpiarFormulario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/LimpiarFormulario.png"))); // NOI18N
         btnLimpiarFormulario.setToolTipText("Limpiar Formulario");
+        btnLimpiarFormulario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarFormularioActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Cancelar.png"))); // NOI18N
@@ -396,7 +494,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 620, 1180, 70));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 660, 1180, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -530,6 +628,141 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void boxNombrePropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxNombrePropietarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxNombrePropietarioActionPerformed
+
+    private void boxNumeroComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxNumeroComercialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxNumeroComercialActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String busqueda = txtBusqueda.getText().trim();
+
+        UnidadDAO unidadDAO = new UnidadDAO();
+
+        // Limpia combos
+        boxNombrePropietario.removeAllItems();
+        boxNumeroComercial.removeAllItems();
+
+        // Búsqueda por nombre de propietario
+        List<String> nombres = unidadDAO.obtenerNombresPropietarios();
+        for (String nombre : nombres) {
+            if (nombre.toLowerCase().contains(busqueda.toLowerCase())) {
+                boxNombrePropietario.addItem(nombre);
+            }
+        }
+
+        // Búsqueda por número comercial
+        List<String> numeros = unidadDAO.obtenerNumerosComerciales();
+        for (String numero : numeros) {
+            if (numero.toLowerCase().contains(busqueda.toLowerCase())) {
+                boxNumeroComercial.addItem(numero);
+            }
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarDatosActionPerformed
+
+    private void btnLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormularioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarFormularioActionPerformed
+
+    private void btnAsignarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarTurnoActionPerformed
+
+        try {
+            // Asegúrate de que el spinner tiene una fecha seleccionada
+            Date fechaSeleccionada = (Date) JpFechaTurnoRegistro.getValue();
+            if (fechaSeleccionada == null) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar una fecha válida.");
+                return;
+            }
+
+            // Formato de la fecha y hora
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+            String fechaTurno = formatoFecha.format(fechaSeleccionada);
+
+            SimpleDateFormat formatoHora = new SimpleDateFormat("hh:mm a");
+            String horaInicio = formatoHora.format(jSHoraInicio.getValue());
+            String horaFin = formatoHora.format(jSHoraFin.getValue());
+
+            // Obtener valores de los JComboBox
+            String nombreProp = (String) boxNombrePropietario.getSelectedItem();
+            String numeroComercial = (String) boxNumeroComercial.getSelectedItem();
+
+            if (nombreProp == null || numeroComercial == null) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un nombre de propietario y un número comercial.");
+                return;
+            }
+
+            // Crear una nueva fila
+            Object[] fila = {fechaTurno, horaInicio, horaFin, nombreProp, numeroComercial};
+
+            // Añadir fila a la tabla
+            DefaultTableModel modelo = (DefaultTableModel) jTableRegistroTurno.getModel();
+            modelo.addRow(fila);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al asignar turno: " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnAsignarTurnoActionPerformed
+
+    //Nuevo Cambio 
+    /*
+     private void btnAsignarTurnoActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        String fechaTurno = JpFechaTurnoRegistro.getValue().toString(); // Asegúrate de que JpFechaTurnoRegistro es un JSpinner de tipo fecha
+
+        // Formatear la hora como hh:mm AM/PM
+        SimpleDateFormat formatoHora = new SimpleDateFormat("hh:mm a");
+        String horaInicio = formatoHora.format(jSHoraInicio.getValue());
+        String horaFin = formatoHora.format(jSHoraFin.getValue());
+
+        String nombreProp = (String) boxNombrePropietario.getSelectedItem();
+        String numeroComercial = (String) boxNumeroComercial.getSelectedItem();
+
+        if (nombreProp == null || numeroComercial == null) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un nombre de propietario y un número comercial.");
+            return;
+        }
+
+        Object[] fila = {fechaTurno, horaInicio, horaFin, nombreProp, numeroComercial};
+
+        DefaultTableModel modelo = (DefaultTableModel) jTableRegistroTurno.getModel();
+        modelo.addRow(fila);
+
+    }       
+    
+    
+    
+     */
+    //Nuevo Camvbio 
+    /*
+      String fechaTurno = JpFechaTurnoRegistro.getValue().toString();
+        String horaInicio = jSHoraInicio.getValue().toString();
+        String horaFin = jSHoraFin.getValue().toString();
+        String nombreProp = (String) boxNombrePropietario.getSelectedItem();
+        String numeroComercial = (String) boxNumeroComercial.getSelectedItem();
+
+        if (nombreProp == null || numeroComercial == null) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un nombre de propietario y un número comercial.");
+            return;
+        }
+
+        Object[] fila = {fechaTurno, horaInicio, horaFin, nombreProp, numeroComercial};
+
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) jTableRegistroTurno.getModel();
+        modelo.addRow(fila);
+
+    
+     */
+
+    private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusquedaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -566,16 +799,19 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner JpFechaTurnoRegistro;
     private javax.swing.JPanel JpGestionIngresos;
     private javax.swing.JPanel JpRegistroTurno;
     private javax.swing.JPanel JpReportes;
+    private javax.swing.JComboBox<String> boxNombrePropietario;
+    private javax.swing.JComboBox<String> boxNumeroComercial;
     private javax.swing.JButton btnAdelante;
     private javax.swing.JButton btnAsignarTurno;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardarDatos;
     private javax.swing.JButton btnLimpiarFormulario;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
@@ -589,13 +825,15 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JSpinner jSHoraFin;
+    private javax.swing.JSpinner jSHoraInicio;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTableRegistroTurno;
+    private javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 }
