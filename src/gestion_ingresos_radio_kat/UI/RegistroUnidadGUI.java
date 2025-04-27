@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
+
+
+
 /**
  *
  * @author User
@@ -33,10 +36,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         );
         jTableRegistroUnidad.setModel(model);
 
-        // Agregar ítems al combo box correctamente
-       // boxTipoUnidad.addItem("Propietario unico"); 
-       // boxTipoUnidad.addItem("Chofer externo");
-    }
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.

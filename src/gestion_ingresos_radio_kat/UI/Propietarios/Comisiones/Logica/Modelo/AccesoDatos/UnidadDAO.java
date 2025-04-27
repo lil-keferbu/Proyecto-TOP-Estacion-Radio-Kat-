@@ -218,4 +218,77 @@ public class UnidadDAO {
         return numeros;
     }
 
+    //Nuevos metodos 
+    public String obtenerEstadoUnidadPorPropietario(String nombrePropietario) {
+        String sql = "SELECT e.nombre_estado FROM Unidad u "
+                + "JOIN Propietario p ON u.id_propietario = p.id_propietario "
+                + "JOIN EstadoUnidad e ON u.id_estado_unidad = e.id_estado_unidad "
+                + "WHERE p.nombre = ?";
+        try (Connection conn = conectar(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, nombrePropietario);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next() ? rs.getString("nombre_estado") : "Desconocido";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "Error";
+        }
+    }
+
+    // En TurnoDAO.java
+    public List<String> obtenerHorariosRegistrados() {
+        List<String> horarios = new ArrayList<>();
+        String sql = "SELECT DATE_FORMAT(hora_inicio, '%H:%i') as inicio, "
+                + "DATE_FORMAT(hora_fin, '%H:%i') as fin FROM Turno";
+        try (Connection conn = conectar(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                horarios.add(rs.getString("inicio") + " - " + rs.getString("fin"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return horarios;
+    }
+
+    //Nuevo metodo 
+    // En UnidadDAO.java
+    /* public double obtenerIngresoBrutoPorPropietario(String nombrePropietario) {
+        String sql = "SELECT SUM(monto_pago) AS ingreso_bruto FROM Pago "
+                + "JOIN Unidad u ON Pago.id_unidad = u.id_unidad "
+                + "JOIN Propietario p ON u.id_propietario = p.id_propietario "
+                + "WHERE p.nombre = ?";
+
+        try (Connection conn = conectar(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, nombrePropietario);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getDouble("ingreso_bruto");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener ingreso bruto: " + e.getMessage());
+        }
+        return 0.0; // Si no hay registros o hay error
+    }*/
+    
+    
+    
+    public double obtenerIngresoBrutoPorPropietario(String nombrePropietario) {
+        String sql = "SELECT SUM(ri.ingresos_brutos) AS ingreso_bruto "
+                + "FROM gestioningresos.RegistroIngresos ri "
+                + "JOIN registrounidades.Unidad u ON ri.placa_unidad = u.placa "
+                + "JOIN registrounidades.Propietario p ON u.id_propietario = p.id_propietario "
+                + "WHERE p.nombre = ?";
+
+        try (Connection conn = conectar(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nombrePropietario);
+            try (ResultSet rs = stmt.executeQuery()) {
+                return rs.next() ? rs.getDouble("ingreso_bruto") : 0.0;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener ingreso bruto: " + e.getMessage());
+            return 0.0;
+        }
+    }
+
 }

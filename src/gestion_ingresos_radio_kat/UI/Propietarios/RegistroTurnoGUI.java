@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gestion_ingresos_radio_kat.UI.Propietarios;
 
+import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.TurnoDAO;
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.UnidadDAO;
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.ReportesGUI;
 import java.awt.Color;
@@ -372,7 +369,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 boxNumeroComercialActionPerformed(evt);
             }
         });
-        jPanel8.add(boxNumeroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 390, 30));
+        jPanel8.add(boxNumeroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 340, 30));
 
         boxNombrePropietario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         boxNombrePropietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
@@ -664,7 +661,36 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDatosActionPerformed
-        // TODO add your handling code here:
+        try {
+            Date fechaSeleccionada = (Date) JpFechaTurnoRegistro.getValue();
+            if (fechaSeleccionada == null) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar una fecha válida.");
+                return;
+            }
+
+            Date horaInicio = (Date) jSHoraInicio.getValue();
+            Date horaFin = (Date) jSHoraFin.getValue();
+
+            String nombreProp = (String) boxNombrePropietario.getSelectedItem();
+            String numeroComercial = (String) boxNumeroComercial.getSelectedItem();
+
+            if (nombreProp == null || numeroComercial == null) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar nombre de propietario y número comercial.");
+                return;
+            }
+
+            TurnoDAO turnoDAO = new TurnoDAO();
+            boolean exito = turnoDAO.guardarTurno(fechaSeleccionada, horaInicio, horaFin, nombreProp, numeroComercial);
+
+            if (exito) {
+                JOptionPane.showMessageDialog(this, "Turno guardado correctamente.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al guardar el turno.");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
     }//GEN-LAST:event_btnGuardarDatosActionPerformed
 
     private void btnLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormularioActionPerformed

@@ -21,10 +21,11 @@ public class CalculoIngresos {
         return ingresosBrutos * porcentajeComision;
     }
 
-    // Método para calcular la ganancia del propietario (Ingresos Brutos + Comisión Total)
+// Método para calcular lsa ganancia del propietario (Ingresos Brutos + Comisión Total)
     public static double calcularGananciaPropietario(double ingresosBrutos, double comisionTotal) {
         return ingresosBrutos - comisionTotal;
     }
 
 }
+
  

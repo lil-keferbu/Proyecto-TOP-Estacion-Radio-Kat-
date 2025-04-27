@@ -4,11 +4,24 @@
  */
 package gestion_ingresos_radio_kat.UI.Propietarios.Comisiones;
 
+import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.CalculoIngresos;
+import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.TurnoDAO;
+import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.UnidadDAO;
+import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.Unidad;
 import gestion_ingresos_radio_kat.UI.Propietarios.GestionIngresosGUI;
 import gestion_ingresos_radio_kat.UI.Propietarios.RegistroTurnoGUI;
+
 import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,6 +36,102 @@ public class ReportesGUI extends javax.swing.JFrame {
      */
     public ReportesGUI() {
         initComponents();
+        initCustomComponents();
+
+    }
+
+    private void initCustomComponents() {
+
+        // Configurar modelo de tabla
+        DefaultTableModel model = new DefaultTableModel(
+                new Object[]{"Fecha", "Unidad", "Propietario", "Horario registrado",
+                    "Estado Unidad", "Ingreso Bruto", "Comisión (%)", "Ganancia Total"}, 0
+        );
+        jTableGenerarReportes.setModel(model);
+
+        // Cargar datos en comboboxes
+        cargarComboboxes();
+
+    }
+
+    private void cargarComboboxes() {
+        try {
+            UnidadDAO unidadDAO = new UnidadDAO();
+            TurnoDAO turnoDAO = new TurnoDAO();
+
+            // Propietarios
+            DefaultComboBoxModel<String> modelNombres = new DefaultComboBoxModel<>();
+            modelNombres.addAll(unidadDAO.obtenerNombresPropietarios());
+            boxNombre.setModel(modelNombres);
+
+            // Horarios
+            DefaultComboBoxModel<String> modelHorarios = new DefaultComboBoxModel<>();
+            modelHorarios.addAll(turnoDAO.obtenerHorariosRegistrados());
+            boxHorarioRegistrado.setModel(modelHorarios);
+
+            // Tipos de Unidad
+            DefaultComboBoxModel<String> modelTipos = new DefaultComboBoxModel<>();
+            modelTipos.addElement("Propietario único");
+            modelTipos.addElement("Chofer externo");
+            boxTipoUnidad.setModel(modelTipos);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al cargar datos: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    /*
+    
+        try {
+            // Cargar nombres de propietarios
+            UnidadDAO unidadDAO = new UnidadDAO();
+            DefaultComboBoxModel<String> modelNombres = new DefaultComboBoxModel<>();
+            modelNombres.addAll(unidadDAO.obtenerNombresPropietarios());
+            boxNombre.setModel(modelNombres);
+
+            // Cargar horarios
+            TurnoDAO turnoDAO = new TurnoDAO();
+            DefaultComboBoxModel<String> modelHorarios = new DefaultComboBoxModel<>();
+            modelHorarios.addAll(turnoDAO.obtenerHorariosRegistrados());
+            boxHorarioRegistrado.setModel(modelHorarios);
+
+            // Cargar tipos de unidad
+            DefaultComboBoxModel<String> modelTipos = new DefaultComboBoxModel<>();
+            modelTipos.addElement("Propietario único");
+            modelTipos.addElement("Chofer externo");
+            boxTipoUnidad.setModel(modelTipos);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al cargar datos: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    
+    
+    
+     */
+    // Método que suma todas las ganancias de la tabla de ReportesGUI
+    public double calcularGananciaTotalEstacion() {
+        double gananciaTotal = 0.0;
+        DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
+        int columnaGanancia = 7; // Columna "Ganancia Total"
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            Object valorCelda = model.getValueAt(i, columnaGanancia);
+            if (valorCelda != null) {
+                try {
+                    gananciaTotal += Double.parseDouble(valorCelda.toString());
+                } catch (NumberFormatException e) {
+                    // Ignorar si hay errores de formato
+                }
+            }
+        }
+        return gananciaTotal;
     }
 
     /**
@@ -50,22 +159,26 @@ public class ReportesGUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
+        jSDiaMesAnio = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        boxTipoUnidad = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        boxTipoReporte = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
-        btnGenerarReporte = new javax.swing.JButton();
+        btnAddTableReporte = new javax.swing.JButton();
         btnLimpiarFormulario = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        btnExportarPdf = new javax.swing.JButton();
+        btnGuardarBDExportarPDF = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableGenerarReportes = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        boxNombre = new javax.swing.JComboBox<>();
+        btnBuscar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        txtBuscar = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        boxHorarioRegistrado = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -288,51 +401,50 @@ public class ReportesGUI extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Fecha Inicio");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 49, 209, -1));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Fecha reporte ");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, 40));
 
-        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Fecha FIn");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 49, 184, -1));
-
-        jSpinner1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jSpinner1.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1743733765360L), null, null, java.util.Calendar.MONTH));
-        jPanel4.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 88, 172, -1));
-
-        jSpinner2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jSpinner2.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1743733920000L), null, null, java.util.Calendar.HOUR));
-        jPanel4.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 88, 153, -1));
+        jSDiaMesAnio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jSDiaMesAnio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1743733765360L), null, null, java.util.Calendar.MONTH));
+        jPanel4.add(jSDiaMesAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 172, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Unidad");
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Horario registrado");
         jLabel8.setToolTipText("Unidades Registradas");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 209, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 160, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 174, 30));
+        boxTipoUnidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        boxTipoUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxTipoUnidadActionPerformed(evt);
+            }
+        });
+        jPanel4.add(boxTipoUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 160, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Tipo Reporte");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 209, -1));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Tipo reporte");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 110, 40));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diario", "Semanalmente" }));
-        jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 174, 30));
+        boxTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diario", "Semanalmente" }));
+        jPanel4.add(boxTipoReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 110, 30));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnGenerarReporte.setBackground(new java.awt.Color(255, 255, 255));
-        btnGenerarReporte.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnGenerarReporte.setForeground(new java.awt.Color(255, 255, 255));
-        btnGenerarReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/GenerarReporte.png"))); // NOI18N
-        btnGenerarReporte.setToolTipText("Generar reporte en la Tabla Reportes ");
-        btnGenerarReporte.setBorder(null);
-        btnGenerarReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
+        btnAddTableReporte.setBackground(new java.awt.Color(255, 255, 255));
+        btnAddTableReporte.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnAddTableReporte.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddTableReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/GenerarReporte.png"))); // NOI18N
+        btnAddTableReporte.setToolTipText("Generar reporte en la Tabla Reportes ");
+        btnAddTableReporte.setBorder(null);
+        btnAddTableReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddTableReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerarReporteActionPerformed(evt);
+                btnAddTableReporteActionPerformed(evt);
             }
         });
 
@@ -362,16 +474,16 @@ public class ReportesGUI extends javax.swing.JFrame {
             }
         });
 
-        btnExportarPdf.setBackground(new java.awt.Color(255, 255, 255));
-        btnExportarPdf.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnExportarPdf.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportarPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/ExportarPDF.png"))); // NOI18N
-        btnExportarPdf.setToolTipText("Exportar PDF");
-        btnExportarPdf.setBorder(null);
-        btnExportarPdf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnExportarPdf.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarBDExportarPDF.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuardarBDExportarPDF.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnGuardarBDExportarPDF.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarBDExportarPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/ExportarPDF.png"))); // NOI18N
+        btnGuardarBDExportarPDF.setToolTipText("Exportar PDF");
+        btnGuardarBDExportarPDF.setBorder(null);
+        btnGuardarBDExportarPDF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardarBDExportarPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarPdfActionPerformed(evt);
+                btnGuardarBDExportarPDFActionPerformed(evt);
             }
         });
 
@@ -381,64 +493,99 @@ public class ReportesGUI extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnGenerarReporte)
+                .addComponent(btnAddTableReporte)
                 .addGap(37, 37, 37)
                 .addComponent(btnLimpiarFormulario)
-                .addGap(80, 80, 80)
-                .addComponent(btnExportarPdf)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 506, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
+                .addComponent(btnGuardarBDExportarPDF)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 600, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
-                .addGap(25, 25, 25))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 8, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExportarPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarBDExportarPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimpiarFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddTableReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 910, 70));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 950, 70));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableGenerarReportes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Fecha", "Unidad", "Chofer", "Ingreso Bruto ", "Comision (%", "Ingreso Neto", "Tipo Turno", "Modo de unidad ", "Estado de unidad"
+                "Fecha", "Unidad", "Propietario", "Horiario  registrado", "Estado unidad", "Ingreso bruto", "Comision (%)", "Ganancia Total"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
+        ));
+        jScrollPane1.setViewportView(jTableGenerarReportes);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 940, 190));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 940, 190));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Chofer ");
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Nombre Propietario");
         jLabel10.setToolTipText("");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 209, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 30, 170, 40));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 174, 30));
+        boxNombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        boxNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxNombreActionPerformed(evt);
+            }
+        });
+        jPanel4.add(boxNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 170, 30));
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 80, 30));
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 290, 30));
+
+        txtBuscar.setText(" ");
+        txtBuscar.setBorder(null);
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 290, 30));
+
+        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Tipo  unidad");
+        jLabel11.setToolTipText("Unidades Registradas");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 160, 40));
+
+        boxHorarioRegistrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        boxHorarioRegistrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxHorarioRegistradoActionPerformed(evt);
+            }
+        });
+        jPanel4.add(boxHorarioRegistrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 70, 160, 30));
+
+        jButton1.setText("Borrar");
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 80, 30));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 1000, 570));
 
@@ -470,9 +617,245 @@ public class ReportesGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGenerarReporteActionPerformed
+    private void btnAddTableReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTableReporteActionPerformed
+
+        try {
+            // Validación de campos
+            if (jSDiaMesAnio.getValue() == null
+                    || boxNombre.getSelectedItem() == null
+                    || boxTipoUnidad.getSelectedItem() == null
+                    || boxHorarioRegistrado.getSelectedItem() == null) {
+
+                JOptionPane.showMessageDialog(this,
+                        "Todos los campos son obligatorios",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Obtener valores
+            Date fecha = (Date) jSDiaMesAnio.getValue();
+            String nombre = boxNombre.getSelectedItem().toString();
+            String tipoUnidad = boxTipoUnidad.getSelectedItem().toString().replace("ú", "u"); // Normalizar
+            String horario = boxHorarioRegistrado.getSelectedItem().toString();
+
+            // Obtener datos
+            UnidadDAO unidadDAO = new UnidadDAO();
+            String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
+            double ingresoBruto = unidadDAO.obtenerIngresoBrutoPorPropietario(nombre);
+
+            // Calcular valores
+            //double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresoBruto, tipoUnidad);
+            //double gananciaPropietario = ingresoBruto - comisionTotal;
+
+            // Dentro de btnAddTableReporteActionPerformed
+            double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresoBruto, tipoUnidad);
+            double gananciaPropietario = CalculoIngresos.calcularGananciaPropietario(ingresoBruto, comisionTotal);
+
+            // Formatear y agregar fila
+            String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
+            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
+            model.addRow(new Object[]{
+                fechaFormateada,
+                tipoUnidad,
+                nombre,
+                horario,
+                estadoUnidad,
+                ingresoBruto,
+                comisionTotal,
+                gananciaPropietario
+            });
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAddTableReporteActionPerformed
+
+    /*
+    
+      try {
+        // Validación de campos
+        if (jSDiaMesAnio.getValue() == null
+                || boxNombre.getSelectedItem() == null
+                || boxTipoUnidad.getSelectedItem() == null
+                || boxHorarioRegistrado.getSelectedItem() == null) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Todos los campos son obligatorios",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Obtener valores
+        Date fecha = (Date) jSDiaMesAnio.getValue();
+        String nombre = boxNombre.getSelectedItem().toString();
+        String tipoUnidad = boxTipoUnidad.getSelectedItem().toString().replace("ú", "u"); // Normalizar
+        String horario = boxHorarioRegistrado.getSelectedItem().toString();
+
+        // Obtener datos
+        UnidadDAO unidadDAO = new UnidadDAO();
+        String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
+        double ingresoBruto = unidadDAO.obtenerIngresoBrutoPorPropietario(nombre);
+
+        if (ingresoBruto <= 0.0) {
+            JOptionPane.showMessageDialog(this, "No se encontraron ingresos para el propietario: " + nombre, "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Calcular valores
+        double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresoBruto, tipoUnidad);
+        double gananciaPropietario = ingresoBruto - comisionTotal;
+
+        // Formatear y agregar fila
+        String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
+        DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
+        model.addRow(new Object[]{
+            fechaFormateada,       // Fecha
+            tipoUnidad,            // Unidad
+            nombre,                // Propietario
+            horario,               // Horario registrado
+            estadoUnidad,          // Estado Unidad
+            String.format("%.2f", ingresoBruto), // Ingreso Bruto
+            String.format("%.2f", comisionTotal), // Comisión
+            String.format("%.2f", gananciaPropietario) // Ganancia
+        });
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this,
+                "Error: " + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+    }
+    
+    
+    
+     */
+ /*
+        
+    
+    
+    
+     */
+    //Otra actualizacion 
+    /*
+    
+    
+       private void btnAddTableReporteActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        try {
+            if (jSDiaMesAnio.getValue() == null
+                    || boxNombre.getSelectedItem() == null
+                    || boxTipoUnidad.getSelectedItem() == null
+                    || boxHorarioRegistrado.getSelectedItem() == null) {
+                JOptionPane.showMessageDialog(this,
+                        "Todos los campos son obligatorios",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            Date fecha = (Date) jSDiaMesAnio.getValue();
+            String nombre = boxNombre.getSelectedItem().toString();
+            String tipoUnidad = boxTipoUnidad.getSelectedItem().toString();
+            String horario = boxHorarioRegistrado.getSelectedItem().toString();
+
+            UnidadDAO unidadDAO = new UnidadDAO();
+            String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
+
+            // Aquí deberías obtener el ingreso bruto real, de momento pondré un ejemplo de 1000
+            double ingresoBruto = unidadDAO.obtenerIngresoBrutoPorPropietario(nombre);
+
+            double comisionPorcentaje = tipoUnidad.equals("Propietario único") ? 10.0 : 15.0;
+            double comisionDecimal = comisionPorcentaje / 100.0;
+            double gananciaTotal = ingresoBruto * (1 - comisionDecimal); // Fórmula: ingreso - comisión
+
+            String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
+
+            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
+
+            model.addRow(new Object[]{
+                fechaFormateada,
+                tipoUnidad,
+                nombre,
+                horario,
+                estadoUnidad,
+                ingresoBruto,
+                comisionPorcentaje,
+                gananciaTotal
+            });
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }                    
+    
+     */
+    //Implementacion que funciona 
+    /*
+    rivate void btnAddTableReporteActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        try {
+            // Validar campos requeridos
+            if (jSDiaMesAnio.getValue() == null
+                    || boxNombre.getSelectedItem() == null
+                    || boxTipoUnidad.getSelectedItem() == null
+                    || boxHorarioRegistrado.getSelectedItem() == null) {
+
+                JOptionPane.showMessageDialog(this,
+                        "Todos los campos son obligatorios",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Obtener valores
+            Date fecha = (Date) jSDiaMesAnio.getValue();
+            String nombre = boxNombre.getSelectedItem().toString();
+            String tipoUnidad = boxTipoUnidad.getSelectedItem().toString();
+            String horario = boxHorarioRegistrado.getSelectedItem().toString();
+
+            // Obtener datos adicionales
+            UnidadDAO unidadDAO = new UnidadDAO();
+            String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
+
+            // Calcular comisión (ejemplo)
+            double comision = tipoUnidad.equals("Propietario único") ? 10.0 : 15.0;
+
+            // Formatear fecha
+            String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
+
+            // Obtener modelo de tabla
+            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
+
+            // Agregar nueva fila
+            model.addRow(new Object[]{
+                fechaFormateada,
+                tipoUnidad,
+                nombre,
+                horario,
+                estadoUnidad,
+                0.0, // Ingreso Bruto (debes implementar esta lógica)
+                comision,
+                0.0 // Ganancia Total (calcular basado en comisión e ingreso)
+            });
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+
+    }                                                  
+
+     */
 
     private void btnLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormularioActionPerformed
         // TODO add your handling code here:
@@ -482,9 +865,9 @@ public class ReportesGUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnExportarPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarPdfActionPerformed
+    private void btnGuardarBDExportarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarBDExportarPDFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarPdfActionPerformed
+    }//GEN-LAST:event_btnGuardarBDExportarPDFActionPerformed
 
     private void JpGestionIngresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpGestionIngresosMouseClicked
         GestionIngresosGUI ingresos = new GestionIngresosGUI();
@@ -539,7 +922,7 @@ public class ReportesGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         ReportesGUI rep = new ReportesGUI();
         rep.setVisible(true);
-        
+
         if (selectedPanel != null) {
             selectedPanel.setBackground(new Color(44, 90, 120));
         }
@@ -563,7 +946,27 @@ public class ReportesGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JpReportesMouseExited
 
-    /**
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void boxHorarioRegistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxHorarioRegistradoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxHorarioRegistradoActionPerformed
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
+
+    private void boxTipoUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxTipoUnidadActionPerformed
+
+    }//GEN-LAST:event_boxTipoUnidadActionPerformed
+
+    private void boxNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxNombreActionPerformed
+
+    }//GEN-LAST:event_boxNombreActionPerformed
+
+    /** 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -602,23 +1005,26 @@ public class ReportesGUI extends javax.swing.JFrame {
     private javax.swing.JPanel JpGestionIngresos;
     private javax.swing.JPanel JpRegistroTurno;
     private javax.swing.JPanel JpReportes;
+    private javax.swing.JComboBox<String> boxHorarioRegistrado;
+    private javax.swing.JComboBox<String> boxNombre;
+    private javax.swing.JComboBox<String> boxTipoReporte;
+    private javax.swing.JComboBox<String> boxTipoUnidad;
+    private javax.swing.JButton btnAddTableReporte;
     private javax.swing.JButton btnAdelante;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnExportarPdf;
-    private javax.swing.JButton btnGenerarReporte;
+    private javax.swing.JButton btnGuardarBDExportarPDF;
     private javax.swing.JButton btnLimpiarFormulario;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -627,9 +1033,10 @@ public class ReportesGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JSpinner jSDiaMesAnio;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTableGenerarReportes;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

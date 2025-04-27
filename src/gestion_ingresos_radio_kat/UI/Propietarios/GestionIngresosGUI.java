@@ -479,7 +479,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         jPanel5.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 60, 30));
         jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 220, 30));
 
-        btnPegarCalcularUniadadYPropietario.setText("Pegar Datos Ya Registrados ");
+        btnPegarCalcularUniadadYPropietario.setText("Pegar Datos  ");
         btnPegarCalcularUniadadYPropietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPegarCalcularUniadadYPropietarioActionPerformed(evt);
