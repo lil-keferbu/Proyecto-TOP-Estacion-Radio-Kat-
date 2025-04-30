@@ -67,9 +67,6 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableGestionIngresos = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         txtIngresosBrutos = new javax.swing.JTextField();
         txtComisionPorcentaje = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -88,6 +85,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         btnPegarCalcularUniadadYPropietario = new javax.swing.JButton();
         txtBusqueda = new javax.swing.JTextField();
         jSpDiaMesAnio = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -97,10 +97,10 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1271, 751));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(29, 54, 88));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 25));
         jPanel1.setPreferredSize(new java.awt.Dimension(270, 640));
 
-        JpGestionIngresos.setBackground(new java.awt.Color(29, 54, 88));
+        JpGestionIngresos.setBackground(new java.awt.Color(0, 0, 51));
         JpGestionIngresos.setPreferredSize(new java.awt.Dimension(231, 66));
         JpGestionIngresos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,8 +114,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Gestion Ingresos ");
 
         javax.swing.GroupLayout JpGestionIngresosLayout = new javax.swing.GroupLayout(JpGestionIngresos);
@@ -123,8 +124,8 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         JpGestionIngresosLayout.setHorizontalGroup(
             JpGestionIngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpGestionIngresosLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JpGestionIngresosLayout.setVerticalGroup(
@@ -135,7 +136,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        JpRegistroTurno.setBackground(new java.awt.Color(29, 54, 88));
+        JpRegistroTurno.setBackground(new java.awt.Color(0, 0, 51));
         JpRegistroTurno.setPreferredSize(new java.awt.Dimension(231, 66));
         JpRegistroTurno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,8 +150,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Registro Turno");
 
         javax.swing.GroupLayout JpRegistroTurnoLayout = new javax.swing.GroupLayout(JpRegistroTurno);
@@ -158,9 +160,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         JpRegistroTurnoLayout.setHorizontalGroup(
             JpRegistroTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpRegistroTurnoLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         JpRegistroTurnoLayout.setVerticalGroup(
             JpRegistroTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +172,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        JpReportes.setBackground(new java.awt.Color(29, 54, 88));
+        JpReportes.setBackground(new java.awt.Color(0, 0, 51));
         JpReportes.setPreferredSize(new java.awt.Dimension(231, 66));
         JpReportes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -184,8 +186,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Reportes");
 
         javax.swing.GroupLayout JpReportesLayout = new javax.swing.GroupLayout(JpReportes);
@@ -193,9 +196,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         JpReportesLayout.setHorizontalGroup(
             JpReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpReportesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         JpReportesLayout.setVerticalGroup(
             JpReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,9 +208,10 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel7.setBackground(new java.awt.Color(29, 54, 88));
+        jPanel7.setBackground(new java.awt.Color(0, 0, 51));
 
-        btnRegresar.setBackground(new java.awt.Color(29, 54, 88));
+        btnRegresar.setBackground(new java.awt.Color(0, 0, 51));
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Regresar.png"))); // NOI18N
         btnRegresar.setMaximumSize(new java.awt.Dimension(64, 24));
         btnRegresar.setMinimumSize(new java.awt.Dimension(64, 24));
@@ -217,7 +221,8 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
             }
         });
 
-        btnAdelante.setBackground(new java.awt.Color(29, 54, 88));
+        btnAdelante.setBackground(new java.awt.Color(0, 0, 51));
+        btnAdelante.setForeground(new java.awt.Color(0, 0, 51));
         btnAdelante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/adelante.png"))); // NOI18N
         btnAdelante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,11 +287,11 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -10, 310, 780));
 
-        jPanel3.setBackground(new java.awt.Color(68, 122, 156));
+        jPanel3.setBackground(new java.awt.Color(127, 127, 127));
         jPanel3.setPreferredSize(new java.awt.Dimension(1030, 240));
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Myanmar Text", 1, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Gestion Ingresos");
@@ -310,7 +315,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1120, 180));
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBackground(new java.awt.Color(216, 216, 216));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTableGestionIngresos.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -346,44 +351,33 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
 
         jPanel9.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 930, 180));
 
-        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Ingrese Fecha");
-        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 114, -1));
-
-        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Ingresos Brutos");
-        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 141, -1));
-
-        jLabel8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Comisión (%)");
-        jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 131, -1));
-
+        txtIngresosBrutos.setBackground(new java.awt.Color(204, 204, 204));
+        txtIngresosBrutos.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         txtIngresosBrutos.setBorder(null);
         txtIngresosBrutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresosBrutosActionPerformed(evt);
             }
         });
-        jPanel9.add(txtIngresosBrutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 62, 160, 30));
+        jPanel9.add(txtIngresosBrutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 140, 20));
 
+        txtComisionPorcentaje.setBackground(new java.awt.Color(204, 204, 204));
+        txtComisionPorcentaje.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         txtComisionPorcentaje.setBorder(null);
         txtComisionPorcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtComisionPorcentajeActionPerformed(evt);
             }
         });
-        jPanel9.add(txtComisionPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 140, 30));
+        jPanel9.add(txtComisionPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 160, 20));
         jPanel9.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 200, 20));
-        jPanel9.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 160, 20));
-        jPanel9.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 140, 20));
+        jPanel9.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 160, 20));
+        jPanel9.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 140, 20));
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(216, 216, 216));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegistrarUnidad.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistrarUnidad.setBackground(new java.awt.Color(216, 216, 216));
         btnRegistrarUnidad.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnRegistrarUnidad.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarUnidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/add.png"))); // NOI18N
@@ -397,7 +391,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         });
         jPanel6.add(btnRegistrarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 54));
 
-        btnLimpiarFormulario1.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimpiarFormulario1.setBackground(new java.awt.Color(216, 216, 216));
         btnLimpiarFormulario1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnLimpiarFormulario1.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarFormulario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/LimpiarFormulario.png"))); // NOI18N
@@ -411,6 +405,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         });
         jPanel6.add(btnLimpiarFormulario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, 56));
 
+        btnActualizar.setBackground(new java.awt.Color(0, 102, 204));
+        btnActualizar.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar ");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,9 +418,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
 
         jPanel9.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 930, -1));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(216, 216, 216));
 
-        btnCancelar1.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancelar1.setBackground(new java.awt.Color(255, 102, 102));
         btnCancelar1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnCancelar1.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Cancelar.png"))); // NOI18N
@@ -436,6 +433,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
             }
         });
 
+        btnGuardarRegistrosIngresos.setBackground(new java.awt.Color(51, 204, 0));
+        btnGuardarRegistrosIngresos.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        btnGuardarRegistrosIngresos.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarRegistrosIngresos.setText("Guardar Ingresos");
         btnGuardarRegistrosIngresos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,15 +449,15 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(btnGuardarRegistrosIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 701, Short.MAX_VALUE)
+                .addComponent(btnGuardarRegistrosIngresos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 687, Short.MAX_VALUE)
                 .addComponent(btnCancelar1)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 4, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
@@ -467,37 +467,59 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
 
         jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 930, 60));
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(234, 234, 234));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBuscarUnidad.setBackground(new java.awt.Color(214, 167, 0));
+        btnBuscarUnidad.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        btnBuscarUnidad.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarUnidad.setText("Buscar");
+        btnBuscarUnidad.setMaximumSize(new java.awt.Dimension(59, 38));
+        btnBuscarUnidad.setMinimumSize(new java.awt.Dimension(59, 38));
+        btnBuscarUnidad.setPreferredSize(new java.awt.Dimension(59, 38));
         btnBuscarUnidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarUnidadActionPerformed(evt);
             }
         });
-        jPanel5.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 60, 30));
-        jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 220, 30));
+        jPanel5.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 80, 30));
+        jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 220, 30));
 
+        btnPegarCalcularUniadadYPropietario.setBackground(new java.awt.Color(51, 102, 0));
+        btnPegarCalcularUniadadYPropietario.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        btnPegarCalcularUniadadYPropietario.setForeground(new java.awt.Color(255, 255, 255));
         btnPegarCalcularUniadadYPropietario.setText("Pegar Datos  ");
         btnPegarCalcularUniadadYPropietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPegarCalcularUniadadYPropietarioActionPerformed(evt);
             }
         });
-        jPanel5.add(btnPegarCalcularUniadadYPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 200, 30));
+        jPanel5.add(btnPegarCalcularUniadadYPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 160, 30));
 
+        txtBusqueda.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         txtBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBusquedaActionPerformed(evt);
             }
         });
-        jPanel5.add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 220, 30));
+        jPanel5.add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 220, 30));
 
-        jPanel9.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 930, 100));
+        jPanel9.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 930, 100));
 
         jSpDiaMesAnio.setModel(new javax.swing.SpinnerDateModel());
         jPanel9.add(jSpDiaMesAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 200, -1));
+
+        jLabel5.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel5.setText("Ingrese fecha:");
+        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 114, -1));
+
+        jLabel7.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel7.setText("Ingresos brutos:");
+        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 141, -1));
+
+        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel8.setText("Comisión (%):");
+        jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 131, -1));
 
         jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 960, 570));
 

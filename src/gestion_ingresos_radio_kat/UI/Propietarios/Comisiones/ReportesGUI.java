@@ -282,11 +282,8 @@ public class ReportesGUI extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jSDiaMesAnio = new javax.swing.JSpinner();
-        jLabel8 = new javax.swing.JLabel();
         boxTipoUnidad = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
         boxTipoReporte = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         btnAddTableReporte = new javax.swing.JButton();
@@ -295,14 +292,18 @@ public class ReportesGUI extends javax.swing.JFrame {
         btnGuardarBDExportarPDF = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableGenerarReportes = new javax.swing.JTable();
-        jLabel10 = new javax.swing.JLabel();
         boxNombre = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         txtBuscar = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         boxHorarioRegistrado = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -311,10 +312,10 @@ public class ReportesGUI extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1271, 751));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(29, 54, 88));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 25));
         jPanel1.setPreferredSize(new java.awt.Dimension(270, 640));
 
-        JpGestionIngresos.setBackground(new java.awt.Color(29, 54, 88));
+        JpGestionIngresos.setBackground(new java.awt.Color(0, 0, 25));
         JpGestionIngresos.setPreferredSize(new java.awt.Dimension(231, 66));
         JpGestionIngresos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -330,6 +331,7 @@ public class ReportesGUI extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Gestion Ingresos ");
 
         javax.swing.GroupLayout JpGestionIngresosLayout = new javax.swing.GroupLayout(JpGestionIngresos);
@@ -337,7 +339,7 @@ public class ReportesGUI extends javax.swing.JFrame {
         JpGestionIngresosLayout.setHorizontalGroup(
             JpGestionIngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpGestionIngresosLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -349,7 +351,7 @@ public class ReportesGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        JpRegistroTurno.setBackground(new java.awt.Color(29, 54, 88));
+        JpRegistroTurno.setBackground(new java.awt.Color(0, 0, 25));
         JpRegistroTurno.setPreferredSize(new java.awt.Dimension(231, 66));
         JpRegistroTurno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -365,6 +367,7 @@ public class ReportesGUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Registro Turno");
 
         javax.swing.GroupLayout JpRegistroTurnoLayout = new javax.swing.GroupLayout(JpRegistroTurno);
@@ -372,7 +375,7 @@ public class ReportesGUI extends javax.swing.JFrame {
         JpRegistroTurnoLayout.setHorizontalGroup(
             JpRegistroTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpRegistroTurnoLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -384,7 +387,7 @@ public class ReportesGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        JpReportes.setBackground(new java.awt.Color(29, 54, 88));
+        JpReportes.setBackground(new java.awt.Color(0, 0, 25));
         JpReportes.setPreferredSize(new java.awt.Dimension(231, 66));
         JpReportes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -400,6 +403,7 @@ public class ReportesGUI extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Reportes");
 
         javax.swing.GroupLayout JpReportesLayout = new javax.swing.GroupLayout(JpReportes);
@@ -407,9 +411,9 @@ public class ReportesGUI extends javax.swing.JFrame {
         JpReportesLayout.setHorizontalGroup(
             JpReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpReportesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         JpReportesLayout.setVerticalGroup(
             JpReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,9 +423,9 @@ public class ReportesGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel7.setBackground(new java.awt.Color(29, 54, 88));
+        jPanel7.setBackground(new java.awt.Color(0, 0, 25));
 
-        btnRegresar.setBackground(new java.awt.Color(29, 54, 88));
+        btnRegresar.setBackground(new java.awt.Color(0, 0, 25));
         btnRegresar.setForeground(new java.awt.Color(29, 54, 88));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Regresar.png"))); // NOI18N
         btnRegresar.setMaximumSize(new java.awt.Dimension(64, 24));
@@ -432,7 +436,7 @@ public class ReportesGUI extends javax.swing.JFrame {
             }
         });
 
-        btnAdelante.setBackground(new java.awt.Color(29, 54, 88));
+        btnAdelante.setBackground(new java.awt.Color(0, 0, 25));
         btnAdelante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/adelante.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -492,11 +496,11 @@ public class ReportesGUI extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -10, 310, 780));
 
-        jPanel3.setBackground(new java.awt.Color(68, 122, 156));
+        jPanel3.setBackground(new java.awt.Color(127, 127, 127));
         jPanel3.setPreferredSize(new java.awt.Dimension(1030, 240));
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Myanmar Text", 1, 38)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Reportes");
@@ -520,26 +524,15 @@ public class ReportesGUI extends javax.swing.JFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1120, 180));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(216, 216, 216));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Fecha reporte ");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, 40));
 
         jSDiaMesAnio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jSDiaMesAnio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1743733765360L), null, null, java.util.Calendar.MONTH));
         jPanel4.add(jSDiaMesAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 172, -1));
 
-        jLabel8.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Horario registrado");
-        jLabel8.setToolTipText("Unidades Registradas");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 160, 40));
-
+        boxTipoUnidad.setBackground(new java.awt.Color(255, 255, 255));
+        boxTipoUnidad.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         boxTipoUnidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         boxTipoUnidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -548,23 +541,19 @@ public class ReportesGUI extends javax.swing.JFrame {
         });
         jPanel4.add(boxTipoUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 160, 30));
 
-        jLabel9.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Tipo reporte");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 110, 40));
-
+        boxTipoReporte.setBackground(new java.awt.Color(242, 242, 242));
+        boxTipoReporte.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         boxTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diario", "Semanalmente" }));
         boxTipoReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxTipoReporteActionPerformed(evt);
             }
         });
-        jPanel4.add(boxTipoReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 110, 30));
+        jPanel4.add(boxTipoReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 120, 30));
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(216, 216, 216));
 
-        btnAddTableReporte.setBackground(new java.awt.Color(255, 255, 255));
+        btnAddTableReporte.setBackground(new java.awt.Color(204, 255, 255));
         btnAddTableReporte.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnAddTableReporte.setForeground(new java.awt.Color(255, 255, 255));
         btnAddTableReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/GenerarReporte.png"))); // NOI18N
@@ -577,7 +566,7 @@ public class ReportesGUI extends javax.swing.JFrame {
             }
         });
 
-        btnLimpiarFormulario.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimpiarFormulario.setBackground(new java.awt.Color(216, 216, 216));
         btnLimpiarFormulario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnLimpiarFormulario.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarFormulario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/LimpiarFormulario.png"))); // NOI18N
@@ -590,7 +579,7 @@ public class ReportesGUI extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setBackground(new java.awt.Color(255, 102, 102));
         btnCancelar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Cancelar.png"))); // NOI18N
@@ -603,7 +592,7 @@ public class ReportesGUI extends javax.swing.JFrame {
             }
         });
 
-        btnGuardarBDExportarPDF.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuardarBDExportarPDF.setBackground(new java.awt.Color(255, 152, 0));
         btnGuardarBDExportarPDF.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnGuardarBDExportarPDF.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarBDExportarPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/ExportarPDF.png"))); // NOI18N
@@ -634,7 +623,7 @@ public class ReportesGUI extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
+                .addGap(0, 38, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGuardarBDExportarPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -643,7 +632,7 @@ public class ReportesGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 950, 70));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 950, 100));
 
         jTableGenerarReportes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -663,15 +652,10 @@ public class ReportesGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableGenerarReportes);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 940, 190));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 940, 190));
 
-        jLabel10.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Nombre Propietario");
-        jLabel10.setToolTipText("");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 30, 170, 40));
-
+        boxNombre.setBackground(new java.awt.Color(255, 255, 255));
+        boxNombre.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         boxNombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         boxNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -680,6 +664,9 @@ public class ReportesGUI extends javax.swing.JFrame {
         });
         jPanel4.add(boxNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 170, 30));
 
+        btnBuscar.setBackground(new java.awt.Color(209, 160, 0));
+        btnBuscar.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -687,8 +674,9 @@ public class ReportesGUI extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 80, 30));
-        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 290, 30));
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 300, 30));
 
+        txtBuscar.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         txtBuscar.setText(" ");
         txtBuscar.setBorder(null);
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -696,15 +684,10 @@ public class ReportesGUI extends javax.swing.JFrame {
                 txtBuscarActionPerformed(evt);
             }
         });
-        jPanel4.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 290, 30));
+        jPanel4.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 300, 30));
 
-        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Tipo  unidad");
-        jLabel11.setToolTipText("Unidades Registradas");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 160, 40));
-
+        boxHorarioRegistrado.setBackground(new java.awt.Color(255, 255, 255));
+        boxHorarioRegistrado.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         boxHorarioRegistrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         boxHorarioRegistrado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -713,8 +696,44 @@ public class ReportesGUI extends javax.swing.JFrame {
         });
         jPanel4.add(boxHorarioRegistrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 70, 160, 30));
 
+        jButton1.setBackground(new java.awt.Color(255, 102, 102));
+        jButton1.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Borrar");
         jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 80, 30));
+
+        jLabel5.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Fecha del reporte:");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 170, 40));
+
+        jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Fecha del reporte:");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 170, 40));
+
+        jLabel9.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Tipo de reporte:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 140, 40));
+
+        jLabel10.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Nombre del proietario:");
+        jLabel10.setToolTipText("");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 30, 190, 40));
+
+        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Tipo  de unidad:");
+        jLabel11.setToolTipText("Unidades Registradas");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 160, 40));
+
+        jLabel8.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Horario registrado:");
+        jLabel8.setToolTipText("Unidades Registradas");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 160, 40));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 1000, 570));
 
@@ -1778,6 +1797,7 @@ public class ReportesGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

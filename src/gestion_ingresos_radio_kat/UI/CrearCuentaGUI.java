@@ -44,7 +44,6 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
         btrMujer = new javax.swing.JRadioButton();
         btrHombre = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -60,30 +59,39 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         txtCorreo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 25));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtNombre.setBackground(new java.awt.Color(0, 0, 25));
+        txtNombre.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 250, 30));
+        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 250, 20));
 
-        txtApellido.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        txtApellido.setBackground(new java.awt.Color(0, 0, 25));
+        txtApellido.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        txtApellido.setForeground(new java.awt.Color(255, 255, 255));
         txtApellido.setBorder(null);
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 260, 30));
+        jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 260, 20));
 
+        btnboxDia.setBackground(new java.awt.Color(0, 0, 38));
         btnboxDia.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnboxDia.setForeground(new java.awt.Color(255, 255, 255));
         btnboxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
@@ -92,8 +100,9 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
                 btnboxDiaActionPerformed(evt);
             }
         });
-        jPanel2.add(btnboxDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 138, -1));
+        jPanel2.add(btnboxDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 138, -1));
 
+        btnboxMes.setBackground(new java.awt.Color(0, 0, 38));
         btnboxMes.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnboxMes.setForeground(new java.awt.Color(255, 255, 255));
         btnboxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ene  ", "Feb  ", "Mar  ", "Abr  ", "May  ", "Jun  ", "Jul  ", "Ago  ", "Sep  ", "Oct  ", "Nov  ", "Dic  " }));
@@ -102,8 +111,9 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
                 btnboxMesActionPerformed(evt);
             }
         });
-        jPanel2.add(btnboxMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 130, -1));
+        jPanel2.add(btnboxMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 130, -1));
 
+        btnboxAnio.setBackground(new java.awt.Color(0, 0, 38));
         btnboxAnio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnboxAnio.setForeground(new java.awt.Color(255, 255, 255));
         btnboxAnio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1905  ", "1906  ", "1907  ", "1908  ", "1909  ", "1910  ", "1911  ", "1912  ", "1913  ", "1914  ", "1915  ", "1916  ", "1917  ", "1918  ", "1919  ", "1920  ", "1921  ", "1922  ", "1923  ", "1924  ", "1925  ", "1926  ", "1927  ", "1928  ", "1929  ", "1930  ", "1931  ", "1932  ", "1933  ", "1934  ", "1935  ", "1936  ", "1937  ", "1938  ", "1939  ", "1940  ", "1941  ", "1942  ", "1943  ", "1944  ", "1945  ", "1946  ", "1947  ", "1948  ", "1949  ", "1950  ", "1951  ", "1952  ", "1953  ", "1954  ", "1955  ", "1956  ", "1957  ", "1958  ", "1959  ", "1960  ", "1961  ", "1962  ", "1963  ", "1964  ", "1965  ", "1966  ", "1967  ", "1968  ", "1969  ", "1970  ", "1971  ", "1972  ", "1973  ", "1974  ", "1975  ", "1976  ", "1977  ", "1978  ", "1979  ", "1980  ", "1981  ", "1982  ", "1983  ", "1984  ", "1985  ", "1986  ", "1987  ", "1988  ", "1989  ", "1990  ", "1991  ", "1992  ", "1993  ", "1994  ", "1995  ", "1996  ", "1997  ", "1998  ", "1999  ", "2000  ", "2001  ", "2002  ", "2003  ", "2004  ", "2005  ", "2006  ", "2007  ", "2008  ", "2009  ", "2010  ", "2011  ", "2012  ", "2013  ", "2014  ", "2015  ", "2016  ", "2017  ", "2018  ", "2019  ", "2020  ", "2021  ", "2022  ", "2023  ", "2024  ", "2025  " }));
@@ -112,57 +122,58 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
                 btnboxAnioActionPerformed(evt);
             }
         });
-        jPanel2.add(btnboxAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 121, -1));
+        jPanel2.add(btnboxAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 121, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Fecha de Naciemiento");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 190, -1));
+        jLabel1.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel1.setText("Fecha de Naciemiento:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 190, -1));
+        jLabel1.getAccessibleContext().setAccessibleName("Fecha de Naciemiento ");
 
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Género");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 160, -1));
+        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel2.setText("Género:");
+        jLabel2.setMaximumSize(new java.awt.Dimension(57, 30));
+        jLabel2.setMinimumSize(new java.awt.Dimension(58, 30));
+        jLabel2.setPreferredSize(new java.awt.Dimension(57, 30));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 70, -1));
 
-        btrMujer.setBackground(new java.awt.Color(255, 255, 255));
+        btrMujer.setBackground(new java.awt.Color(0, 0, 25));
         buttonGroup1.add(btrMujer);
         btrMujer.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btrMujer.setForeground(new java.awt.Color(0, 0, 0));
+        btrMujer.setForeground(new java.awt.Color(255, 255, 255));
         btrMujer.setText("Mujer");
+        btrMujer.setToolTipText("");
         btrMujer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btrMujerActionPerformed(evt);
             }
         });
-        jPanel2.add(btrMujer, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, -1, -1));
+        jPanel2.add(btrMujer, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
 
-        btrHombre.setBackground(new java.awt.Color(255, 255, 255));
+        btrHombre.setBackground(new java.awt.Color(0, 0, 25));
         buttonGroup1.add(btrHombre);
         btrHombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btrHombre.setForeground(new java.awt.Color(0, 0, 0));
+        btrHombre.setForeground(new java.awt.Color(255, 255, 255));
         btrHombre.setText("Hombre");
         btrHombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btrHombreActionPerformed(evt);
             }
         });
-        jPanel2.add(btrHombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 90, -1));
+        jPanel2.add(btrHombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 90, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Nombre");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 110, -1));
-
-        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Apellido ");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 100, -1));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 260, 20));
+        jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel3.setText("Nombre:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 110, -1));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 260, 20));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, -1, -1));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 250, 10));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 480, 20));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 250, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 480, 20));
 
-        JpRegistrarUsuario.setBackground(new java.awt.Color(25, 137, 54));
+        JpRegistrarUsuario.setBackground(new java.awt.Color(196, 196, 25));
+        JpRegistrarUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JpRegistrarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JpRegistrarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -173,7 +184,7 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Registrar");
@@ -183,28 +194,27 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
         JpRegistrarUsuarioLayout.setHorizontalGroup(
             JpRegistrarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpRegistrarUsuarioLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JpRegistrarUsuarioLayout.setVerticalGroup(
             JpRegistrarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpRegistrarUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel2.add(JpRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 190, 30));
+        jPanel2.add(JpRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 150, 30));
 
-        jPanel3.setBackground(new java.awt.Color(68, 122, 156));
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setPreferredSize(new java.awt.Dimension(1030, 240));
 
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel11.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel11.setFont(new java.awt.Font("Myanmar Text", 1, 25)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("CRAR CUENTA");
+        jLabel11.setText("Crear cuenta");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -219,13 +229,16 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jLabel11.getAccessibleContext().setAccessibleName("Crear cuenta");
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1030, 90));
 
-        JpssNuevaPassword.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        JpssNuevaPassword.setForeground(new java.awt.Color(0, 0, 0));
+        JpssNuevaPassword.setBackground(new java.awt.Color(0, 0, 25));
+        JpssNuevaPassword.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
+        JpssNuevaPassword.setForeground(new java.awt.Color(255, 255, 255));
         JpssNuevaPassword.setText("jPasswordField1");
         JpssNuevaPassword.setBorder(null);
         JpssNuevaPassword.addCaretListener(new javax.swing.event.CaretListener() {
@@ -238,16 +251,17 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
                 JpssNuevaPasswordActionPerformed(evt);
             }
         });
-        jPanel2.add(JpssNuevaPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 480, 40));
+        jPanel2.add(JpssNuevaPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, 480, 20));
 
-        JpEntrar.setBackground(new java.awt.Color(255, 20, 20));
+        JpEntrar.setBackground(new java.awt.Color(76, 121, 255));
+        JpEntrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JpEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpEntrarMouseClicked(evt);
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Entrar");
@@ -257,36 +271,40 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
         JpEntrarLayout.setHorizontalGroup(
             JpEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpEntrarLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         JpEntrarLayout.setVerticalGroup(
             JpEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpEntrarLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.add(JpEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 190, 30));
+        jPanel2.add(JpEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 150, 30));
 
-        lblOlvidepassword.setForeground(new java.awt.Color(0, 0, 0));
+        lblOlvidepassword.setFont(new java.awt.Font("Myanmar Text", 3, 12)); // NOI18N
+        lblOlvidepassword.setForeground(new java.awt.Color(0, 153, 255));
         lblOlvidepassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblOlvidepassword.setText("Olvide mi contraseña");
         lblOlvidepassword.setToolTipText("Recuperer Contraseña");
         lblOlvidepassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblOlvidepassword.setMaximumSize(new java.awt.Dimension(118, 23));
+        lblOlvidepassword.setMinimumSize(new java.awt.Dimension(118, 23));
+        lblOlvidepassword.setPreferredSize(new java.awt.Dimension(118, 23));
         lblOlvidepassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblOlvidepasswordMouseClicked(evt);
             }
         });
-        jPanel2.add(lblOlvidepassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 120, -1));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 190, 10));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 480, 10));
+        jPanel2.add(lblOlvidepassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 120, -1));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 560, 180, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 480, 10));
 
-        txtCorreo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtCorreo.setForeground(new java.awt.Color(0, 0, 0));
+        txtCorreo.setBackground(new java.awt.Color(0, 0, 25));
+        txtCorreo.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(255, 255, 255));
         txtCorreo.setToolTipText("Correo");
         txtCorreo.setBorder(null);
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -294,7 +312,26 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
                 txtCorreoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 364, 480, 40));
+        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 590, 20));
+
+        jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel6.setText("Correo:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 70, -1));
+
+        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel8.setText("Contraseña:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, -1, -1));
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/local_taxi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"))); // NOI18N
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 500, 130, 117));
+
+        jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel4.setText("Apellido:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -604,7 +641,10 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;

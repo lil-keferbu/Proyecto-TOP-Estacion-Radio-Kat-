@@ -36,18 +36,17 @@ public class LoginUI extends javax.swing.JFrame {
     private void initComponents() {
 
         Backgraund = new javax.swing.JPanel();
-        lblpass = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         txtNombre = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         pss = new javax.swing.JPasswordField();
         JpEntrar = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblpass1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         JpCrearCuenta = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -55,19 +54,13 @@ public class LoginUI extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        Backgraund.setBackground(new java.awt.Color(255, 255, 255));
+        Backgraund.setBackground(new java.awt.Color(0, 0, 25));
         Backgraund.setPreferredSize(new java.awt.Dimension(800, 500));
         Backgraund.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblpass.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        lblpass.setForeground(new java.awt.Color(0, 0, 0));
-        lblpass.setText("PASSWORD ");
-        Backgraund.add(lblpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 200, -1));
-        Backgraund.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 300, -1));
-        Backgraund.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 300, -1));
+        Backgraund.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 310, 10));
+        Backgraund.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 310, 10));
 
         txtNombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -79,15 +72,9 @@ public class LoginUI extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        Backgraund.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 300, 30));
-
-        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("USUARIO ");
-        Backgraund.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 200, -1));
+        Backgraund.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 310, 30));
 
         pss.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        pss.setForeground(new java.awt.Color(204, 204, 204));
         pss.setText("jPasswordField1");
         pss.setBorder(null);
         pss.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,10 +87,12 @@ public class LoginUI extends javax.swing.JFrame {
                 pssActionPerformed(evt);
             }
         });
-        Backgraund.add(pss, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 300, 30));
+        Backgraund.add(pss, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 310, 30));
 
-        JpEntrar.setBackground(new java.awt.Color(68, 122, 156));
+        JpEntrar.setBackground(new java.awt.Color(72, 129, 165));
+        JpEntrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JpEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpEntrar.setPreferredSize(new java.awt.Dimension(120, 35));
         JpEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpEntrarMouseClicked(evt);
@@ -119,7 +108,7 @@ public class LoginUI extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("ENTRAR");
+        jLabel5.setText("Entrar");
 
         javax.swing.GroupLayout JpEntrarLayout = new javax.swing.GroupLayout(JpEntrar);
         JpEntrar.setLayout(JpEntrarLayout);
@@ -128,7 +117,7 @@ public class LoginUI extends javax.swing.JFrame {
             .addGroup(JpEntrarLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         JpEntrarLayout.setVerticalGroup(
             JpEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,28 +127,35 @@ public class LoginUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Backgraund.add(JpEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 120, -1));
+        Backgraund.add(JpEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 120, -1));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/passkey_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"))); // NOI18N
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Backgraund.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 140, -1));
-
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ADMINISTRADOR UNICO ");
-        Backgraund.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 280, -1));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/local_taxi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"))); // NOI18N
-        Backgraund.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(522, 70, 370, 117));
+        Backgraund.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 140, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/image1_0.jpg"))); // NOI18N
-        Backgraund.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 370, 560));
+        Backgraund.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 370, 570));
 
-        JpCrearCuenta.setBackground(new java.awt.Color(25, 137, 54));
+        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 25)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Administrador único");
+        Backgraund.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 340, -1));
+
+        lblpass1.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
+        lblpass1.setForeground(new java.awt.Color(242, 242, 33));
+        lblpass1.setText("Contraseña:");
+        Backgraund.add(lblpass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 200, -1));
+
+        jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(242, 242, 33));
+        jLabel4.setText("Usuario:");
+        Backgraund.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 200, -1));
+
+        JpCrearCuenta.setBackground(new java.awt.Color(211, 211, 0));
+        JpCrearCuenta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 51), new java.awt.Color(255, 255, 0), new java.awt.Color(255, 255, 0), new java.awt.Color(255, 255, 102)));
         JpCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JpCrearCuenta.setPreferredSize(new java.awt.Dimension(110, 29));
         JpCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,7 +169,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("CREAR CUENTA");
+        jLabel6.setText("Crear cuenta");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -185,19 +181,19 @@ public class LoginUI extends javax.swing.JFrame {
         JpCrearCuentaLayout.setHorizontalGroup(
             JpCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpCrearCuentaLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel6)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         JpCrearCuentaLayout.setVerticalGroup(
             JpCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpCrearCuentaLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+            .addGroup(JpCrearCuentaLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel6)
-                .addGap(15, 15, 15))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        Backgraund.add(JpCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 150, 50));
+        Backgraund.add(JpCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,7 +203,7 @@ public class LoginUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Backgraund, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+            .addComponent(Backgraund, javax.swing.GroupLayout.PREFERRED_SIZE, 561, Short.MAX_VALUE)
         );
 
         pack();
@@ -330,7 +326,6 @@ public class LoginUI extends javax.swing.JFrame {
         crearCuenta.setVisible(true); // Mostrarla
         crearCuenta.setLocationRelativeTo(null); // Centrar la ventana
         this.dispose(); // Cerrar la ventana actual (LoginUI)
-   
 
     }//GEN-LAST:event_JpCrearCuentaMouseClicked
 
@@ -377,7 +372,6 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JPanel Backgraund;
     private javax.swing.JPanel JpCrearCuenta;
     private javax.swing.JPanel JpEntrar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -386,7 +380,7 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JLabel lblpass;
+    private javax.swing.JLabel lblpass1;
     private javax.swing.JPasswordField pss;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

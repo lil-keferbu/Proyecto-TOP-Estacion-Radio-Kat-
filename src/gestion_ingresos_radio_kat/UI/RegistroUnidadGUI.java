@@ -62,9 +62,6 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtNumPlaca = new javax.swing.JTextField();
         txtNombrePropietario = new javax.swing.JTextField();
@@ -75,8 +72,6 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         boxTipoUnidad = new javax.swing.JComboBox<>();
         boxEstadoUnidad = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         btnRegistrarUnidad = new javax.swing.JButton();
@@ -90,6 +85,11 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         txtBuscarPlaca = new javax.swing.JTextField();
         btnCargarDataBase = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,10 +97,10 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         JpFondo.setPreferredSize(new java.awt.Dimension(1020, 800));
         JpFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(29, 54, 88));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 25));
         jPanel1.setPreferredSize(new java.awt.Dimension(270, 640));
 
-        JpGestionIngresos.setBackground(new java.awt.Color(29, 54, 88));
+        JpGestionIngresos.setBackground(new java.awt.Color(0, 0, 51));
         JpGestionIngresos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpGestionIngresosMouseClicked(evt);
@@ -113,9 +113,13 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Gestion Ingresos");
+        jLabel8.setMaximumSize(new java.awt.Dimension(140, 30));
+        jLabel8.setMinimumSize(new java.awt.Dimension(140, 30));
+        jLabel8.setPreferredSize(new java.awt.Dimension(140, 30));
 
         javax.swing.GroupLayout JpGestionIngresosLayout = new javax.swing.GroupLayout(JpGestionIngresos);
         JpGestionIngresos.setLayout(JpGestionIngresosLayout);
@@ -134,7 +138,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        JpRegistroTurno.setBackground(new java.awt.Color(29, 54, 88));
+        JpRegistroTurno.setBackground(new java.awt.Color(0, 0, 51));
         JpRegistroTurno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpRegistroTurnoMouseClicked(evt);
@@ -147,9 +151,14 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel9.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel9.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Registro Turno");
+        jLabel9.setMaximumSize(new java.awt.Dimension(140, 30));
+        jLabel9.setMinimumSize(new java.awt.Dimension(140, 30));
+        jLabel9.setPreferredSize(new java.awt.Dimension(140, 30));
 
         javax.swing.GroupLayout JpRegistroTurnoLayout = new javax.swing.GroupLayout(JpRegistroTurno);
         JpRegistroTurno.setLayout(JpRegistroTurnoLayout);
@@ -164,11 +173,11 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
             JpRegistroTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpRegistroTurnoLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(19, 19, 19))
         );
 
-        JpReportes.setBackground(new java.awt.Color(29, 54, 88));
+        JpReportes.setBackground(new java.awt.Color(0, 0, 51));
         JpReportes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpReportesMouseClicked(evt);
@@ -181,9 +190,14 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel10.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel10.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Reportes");
+        jLabel10.setMaximumSize(new java.awt.Dimension(140, 30));
+        jLabel10.setMinimumSize(new java.awt.Dimension(140, 30));
+        jLabel10.setPreferredSize(new java.awt.Dimension(140, 30));
 
         javax.swing.GroupLayout JpReportesLayout = new javax.swing.GroupLayout(JpReportes);
         JpReportes.setLayout(JpReportesLayout);
@@ -198,13 +212,13 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
             JpReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpReportesLayout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jLabel10)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
-        jPanel5.setBackground(new java.awt.Color(29, 54, 88));
+        jPanel5.setBackground(new java.awt.Color(0, 0, 51));
 
-        btnRegresar.setBackground(new java.awt.Color(29, 54, 88));
+        btnRegresar.setBackground(new java.awt.Color(0, 0, 51));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Regresar.png"))); // NOI18N
         btnRegresar.setBorder(null);
         btnRegresar.setRolloverEnabled(true);
@@ -215,7 +229,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
             }
         });
 
-        btnAdelante.setBackground(new java.awt.Color(29, 54, 88));
+        btnAdelante.setBackground(new java.awt.Color(0, 0, 51));
         btnAdelante.setForeground(new java.awt.Color(255, 255, 255));
         btnAdelante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/adelante.png"))); // NOI18N
         btnAdelante.setText("jButton1");
@@ -274,16 +288,16 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
                 .addComponent(JpReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         JpFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 750));
 
-        jPanel2.setBackground(new java.awt.Color(68, 122, 156));
+        jPanel2.setBackground(new java.awt.Color(127, 127, 127));
         jPanel2.setPreferredSize(new java.awt.Dimension(1030, 240));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Myanmar Text", 1, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Registro Unidad ");
@@ -299,45 +313,33 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         JpFondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1030, 140));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(216, 216, 216));
+        jPanel3.setForeground(new java.awt.Color(216, 216, 216));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Nombre Propietario ");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 192, -1));
-
-        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Numero placa");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, -1));
-
-        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Numero comercial ");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 170, -1));
-
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Numero Telefono");
+        jLabel5.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel5.setText("Número de teléfono:");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 150, -1));
 
+        txtNumPlaca.setBackground(new java.awt.Color(204, 204, 204));
         txtNumPlaca.setBorder(null);
         txtNumPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumPlacaActionPerformed(evt);
             }
         });
-        jPanel3.add(txtNumPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 250, 29));
+        jPanel3.add(txtNumPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 169, 250, 20));
 
+        txtNombrePropietario.setBackground(new java.awt.Color(204, 204, 204));
         txtNombrePropietario.setBorder(null);
         txtNombrePropietario.setPreferredSize(new java.awt.Dimension(117, 16));
         txtNombrePropietario.addActionListener(new java.awt.event.ActionListener() {
@@ -345,8 +347,9 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
                 txtNombrePropietarioActionPerformed(evt);
             }
         });
-        jPanel3.add(txtNombrePropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 250, 29));
+        jPanel3.add(txtNombrePropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 250, 20));
 
+        txtNumComercial.setBackground(new java.awt.Color(204, 204, 204));
         txtNumComercial.setBorder(null);
         txtNumComercial.setPreferredSize(new java.awt.Dimension(117, 16));
         txtNumComercial.addActionListener(new java.awt.event.ActionListener() {
@@ -354,8 +357,9 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
                 txtNumComercialActionPerformed(evt);
             }
         });
-        jPanel3.add(txtNumComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 250, 29));
+        jPanel3.add(txtNumComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 249, 250, 20));
 
+        txtNumTelefono.setBackground(new java.awt.Color(204, 204, 204));
         txtNumTelefono.setBorder(null);
         txtNumTelefono.setPreferredSize(new java.awt.Dimension(117, 16));
         txtNumTelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -363,13 +367,14 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
                 txtNumTelefonoActionPerformed(evt);
             }
         });
-        jPanel3.add(txtNumTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 250, 29));
+        jPanel3.add(txtNumTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 439, 250, 20));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 250, 10));
-        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 250, 15));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 51, 102));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 250, 20));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 250, 10));
 
-        boxTipoUnidad.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        boxTipoUnidad.setForeground(new java.awt.Color(0, 0, 0));
+        boxTipoUnidad.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         boxTipoUnidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Propietario unico", "Chofer externo" }));
         boxTipoUnidad.setBorder(null);
         boxTipoUnidad.addActionListener(new java.awt.event.ActionListener() {
@@ -377,10 +382,9 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
                 boxTipoUnidadActionPerformed(evt);
             }
         });
-        jPanel3.add(boxTipoUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 153, -1));
+        jPanel3.add(boxTipoUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 80, 180, -1));
 
-        boxEstadoUnidad.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        boxEstadoUnidad.setForeground(new java.awt.Color(0, 0, 0));
+        boxEstadoUnidad.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         boxEstadoUnidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
         boxEstadoUnidad.setBorder(new javax.swing.border.MatteBorder(null));
         boxEstadoUnidad.addActionListener(new java.awt.event.ActionListener() {
@@ -389,24 +393,12 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
             }
         });
         jPanel3.add(boxEstadoUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 155, -1));
-
-        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Tipo de unidad");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 153, -1));
-
-        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Estado de la unidad");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 155, -1));
         jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 250, 10));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(216, 216, 216));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegistrarUnidad.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistrarUnidad.setBackground(new java.awt.Color(153, 255, 51));
         btnRegistrarUnidad.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnRegistrarUnidad.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarUnidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Registro Unidad.png"))); // NOI18N
@@ -420,7 +412,6 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         });
         jPanel4.add(btnRegistrarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 54));
 
-        btnLimpiarFormulario.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpiarFormulario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnLimpiarFormulario.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarFormulario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/LimpiarFormulario.png"))); // NOI18N
@@ -434,7 +425,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         });
         jPanel4.add(btnLimpiarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, 56));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setBackground(new java.awt.Color(250, 82, 82));
         btnCancelar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Cancelar.png"))); // NOI18N
@@ -450,6 +441,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 960, 60));
 
+        jTableRegistroUnidad.setBackground(new java.awt.Color(255, 255, 255));
         jTableRegistroUnidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -474,9 +466,11 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 690, 270));
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(234, 234, 234));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBorrarDatoTabla.setBackground(new java.awt.Color(153, 0, 0));
+        btnBorrarDatoTabla.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         btnBorrarDatoTabla.setText("Borrar ");
         btnBorrarDatoTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -485,15 +479,18 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         });
         jPanel6.add(btnBorrarDatoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 90, 30));
 
+        btnBuscarUnidad.setBackground(new java.awt.Color(216, 172, 0));
+        btnBuscarUnidad.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarUnidad.setText("Buscar");
         btnBuscarUnidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarUnidadActionPerformed(evt);
             }
         });
-        jPanel6.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 30));
+        jPanel6.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
         jPanel6.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 240, 20));
 
+        txtBuscarPlaca.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         txtBuscarPlaca.setBorder(null);
         txtBuscarPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -502,6 +499,9 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         });
         jPanel6.add(txtBuscarPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 240, 30));
 
+        btnCargarDataBase.setBackground(new java.awt.Color(0, 102, 153));
+        btnCargarDataBase.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
+        btnCargarDataBase.setForeground(new java.awt.Color(255, 255, 255));
         btnCargarDataBase.setText("Refresh");
         btnCargarDataBase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -510,7 +510,34 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         });
         jPanel6.add(btnCargarDataBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 90, 30));
 
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 680, 70));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 690, 60));
+
+        jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel4.setText("Número comercial:");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 170, -1));
+
+        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel2.setText("Nombre del propietario: ");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 192, 20));
+
+        jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel3.setText("Número de placa:");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 150, 20));
+
+        jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Tipo de unidad");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 153, -1));
+
+        jLabel7.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Estado de la unidad");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 155, -1));
 
         JpFondo.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 1000, 610));
 

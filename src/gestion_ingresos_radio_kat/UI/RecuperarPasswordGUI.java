@@ -129,7 +129,6 @@ public class RecuperarPasswordGUI extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txtSubject = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         JpRecuperarPassword = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         JpRecuperar = new javax.swing.JPanel();
@@ -138,21 +137,26 @@ public class RecuperarPasswordGUI extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 25));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(68, 122, 156));
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setPreferredSize(new java.awt.Dimension(1030, 240));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Myanmar Text", 1, 25)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("RECUPERAR CUENTA");
+        jLabel11.setText(" Recuperar cuenta");
+        jLabel11.setMaximumSize(new java.awt.Dimension(205, 48));
+        jLabel11.setMinimumSize(new java.awt.Dimension(205, 48));
+        jLabel11.setPreferredSize(new java.awt.Dimension(206, 48));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -161,7 +165,7 @@ public class RecuperarPasswordGUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(252, 252, 252)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,22 +174,23 @@ public class RecuperarPasswordGUI extends javax.swing.JFrame {
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1030, 90));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 890, 90));
 
         txtSubject.setForeground(new java.awt.Color(0, 0, 0));
         txtSubject.setText("Recuperar password   ");
         jPanel1.add(txtSubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 351, 90));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Ingresa correo electronico");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 253, 30));
-
+        JpRecuperarPassword.setBackground(new java.awt.Color(0, 0, 25));
+        JpRecuperarPassword.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        JpRecuperarPassword.setForeground(new java.awt.Color(255, 255, 255));
         JpRecuperarPassword.setText("jPasswordField1");
         JpRecuperarPassword.setToolTipText("Contraseña Nueva");
         JpRecuperarPassword.setBorder(null);
-        jPanel1.add(JpRecuperarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 290, 40));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 290, 30));
+        jPanel1.add(JpRecuperarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 290, 40));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 290, 30));
 
+        JpRecuperar.setBackground(new java.awt.Color(0, 153, 255));
+        JpRecuperar.setMinimumSize(new java.awt.Dimension(117, 30));
         JpRecuperar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpRecuperarMouseClicked(evt);
@@ -193,29 +198,50 @@ public class RecuperarPasswordGUI extends javax.swing.JFrame {
         });
         JpRecuperar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Recuperar");
-        JpRecuperar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 77, -1));
+        jLabel3.setMaximumSize(new java.awt.Dimension(73, 30));
+        jLabel3.setMinimumSize(new java.awt.Dimension(73, 30));
+        jLabel3.setPreferredSize(new java.awt.Dimension(73, 30));
+        JpRecuperar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 77, 20));
 
-        jPanel1.add(JpRecuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 160, 40));
+        jPanel1.add(JpRecuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 150, 40));
 
+        txtDireccionCorreo.setBackground(new java.awt.Color(0, 0, 25));
+        txtDireccionCorreo.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        txtDireccionCorreo.setForeground(new java.awt.Color(255, 255, 255));
         txtDireccionCorreo.setToolTipText("Direccion correo Electronico ");
         txtDireccionCorreo.setBorder(null);
-        jPanel1.add(txtDireccionCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 290, 40));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 290, 10));
+        jPanel1.add(txtDireccionCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 290, 40));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 290, 20));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Contraseña");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 100, -1));
 
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 120, 50));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 120, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 568));
+        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel2.setText("Ingresa tu correo electrónico:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 253, 30));
+
+        jLabel5.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel5.setText("Contraseña:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 100, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -307,6 +333,7 @@ public class RecuperarPasswordGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;

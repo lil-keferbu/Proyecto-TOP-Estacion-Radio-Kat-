@@ -89,11 +89,6 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
         btnAdelante = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jSHoraInicio = new javax.swing.JSpinner();
         jSHoraFin = new javax.swing.JSpinner();
         JpFechaTurnoRegistro = new javax.swing.JSpinner();
@@ -106,6 +101,11 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         txtBusqueda = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         btnGuardarDatos = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         btnAsignarTurno = new javax.swing.JButton();
         btnLimpiarFormulario = new javax.swing.JButton();
@@ -117,11 +117,11 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(68, 122, 156));
+        jPanel3.setBackground(new java.awt.Color(127, 127, 127));
         jPanel3.setPreferredSize(new java.awt.Dimension(1030, 240));
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Myanmar Text", 1, 38)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Registros Turnos");
@@ -145,12 +145,12 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1180, 150));
 
-        jPanel2.setBackground(new java.awt.Color(29, 54, 88));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 25));
         jPanel2.setPreferredSize(new java.awt.Dimension(270, 640));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/reportes.png"))); // NOI18N
 
-        JpGestionIngresos.setBackground(new java.awt.Color(29, 54, 88));
+        JpGestionIngresos.setBackground(new java.awt.Color(0, 0, 25));
         JpGestionIngresos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpGestionIngresosMouseClicked(evt);
@@ -163,7 +163,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Gestion ingresos");
 
@@ -172,7 +172,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         JpGestionIngresosLayout.setHorizontalGroup(
             JpGestionIngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpGestionIngresosLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -184,7 +184,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        JpRegistroTurno.setBackground(new java.awt.Color(29, 54, 88));
+        JpRegistroTurno.setBackground(new java.awt.Color(0, 0, 25));
         JpRegistroTurno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpRegistroTurnoMouseClicked(evt);
@@ -197,7 +197,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Registros Turno");
 
@@ -206,7 +206,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         JpRegistroTurnoLayout.setHorizontalGroup(
             JpRegistroTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpRegistroTurnoLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(67, 67, 67)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -218,7 +218,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        JpReportes.setBackground(new java.awt.Color(29, 54, 88));
+        JpReportes.setBackground(new java.awt.Color(0, 0, 25));
         JpReportes.setForeground(new java.awt.Color(255, 255, 255));
         JpReportes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -232,7 +232,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Reporte");
 
@@ -241,7 +241,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         JpReportesLayout.setHorizontalGroup(
             JpReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpReportesLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(75, 75, 75)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -253,9 +253,9 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        jPanel7.setBackground(new java.awt.Color(29, 54, 88));
+        jPanel7.setBackground(new java.awt.Color(0, 0, 25));
 
-        btnRegresar.setBackground(new java.awt.Color(29, 54, 88));
+        btnRegresar.setBackground(new java.awt.Color(0, 0, 25));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Regresar.png"))); // NOI18N
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,7 +263,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
             }
         });
 
-        btnAdelante.setBackground(new java.awt.Color(29, 54, 88));
+        btnAdelante.setBackground(new java.awt.Color(0, 0, 25));
         btnAdelante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/adelante.png"))); // NOI18N
         btnAdelante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,7 +278,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(btnAdelante, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -315,63 +315,40 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 .addComponent(JpRegistroTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(JpReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
+                .addGap(106, 106, 106)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 760));
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(216, 216, 216));
         jPanel8.setForeground(new java.awt.Color(0, 0, 0));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Fecha Turno");
-        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 170, -1));
-
-        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Hora de Inicio ");
-        jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 170, -1));
-
-        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Hora de Finalizacion");
-        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 170, -1));
-
-        jLabel8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Numero Comercial");
-        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 170, -1));
-
-        jLabel9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Nombre Chofer");
-        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 170, 30));
-
         jSHoraInicio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jSHoraInicio.setModel(new javax.swing.SpinnerNumberModel());
-        jPanel8.add(jSHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 170, -1));
+        jPanel8.add(jSHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 170, -1));
 
         jSHoraFin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jPanel8.add(jSHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 170, -1));
+        jPanel8.add(jSHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 170, -1));
 
         JpFechaTurnoRegistro.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         JpFechaTurnoRegistro.setModel(new javax.swing.SpinnerDateModel());
         jPanel8.add(JpFechaTurnoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 170, -1));
 
-        boxNumeroComercial.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        boxNumeroComercial.setBackground(new java.awt.Color(242, 242, 242));
+        boxNumeroComercial.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         boxNumeroComercial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         boxNumeroComercial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxNumeroComercialActionPerformed(evt);
             }
         });
-        jPanel8.add(boxNumeroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 340, 30));
+        jPanel8.add(boxNumeroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 340, -1));
 
-        boxNombrePropietario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        boxNombrePropietario.setBackground(new java.awt.Color(242, 242, 242));
+        boxNombrePropietario.setFont(new java.awt.Font("Myanmar Text", 0, 12)); // NOI18N
         boxNombrePropietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         boxNombrePropietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -407,6 +384,9 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBuscar.setBackground(new java.awt.Color(211, 162, 0));
+        btnBuscar.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -424,19 +404,42 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         jPanel4.add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 34, 288, 33));
         jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 280, 20));
 
+        btnGuardarDatos.setBackground(new java.awt.Color(51, 204, 0));
+        btnGuardarDatos.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        btnGuardarDatos.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarDatos.setText("Guardar datos ");
         btnGuardarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarDatosActionPerformed(evt);
             }
         });
-        jPanel4.add(btnGuardarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 34, 130, 30));
+        jPanel4.add(btnGuardarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 150, 30));
 
-        jPanel8.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 980, 100));
+        jPanel8.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1000, 80));
+
+        jLabel9.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel9.setText("Nombre del chofer:");
+        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 170, 30));
+
+        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel8.setText("Número Comercial:");
+        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 170, -1));
+
+        jLabel5.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel5.setText("Fecha de turno:");
+        jPanel8.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 170, -1));
+
+        jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel6.setText("Hora de inicio:");
+        jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 170, -1));
+
+        jLabel7.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel7.setText("Hora de finalización:");
+        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 170, -1));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 1040, 510));
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBackground(new java.awt.Color(216, 216, 216));
 
         btnAsignarTurno.setBackground(new java.awt.Color(255, 255, 255));
         btnAsignarTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Asignar.png"))); // NOI18N
@@ -456,7 +459,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setBackground(new java.awt.Color(255, 102, 102));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Cancelar.png"))); // NOI18N
         btnCancelar.setToolTipText("Cerrar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
