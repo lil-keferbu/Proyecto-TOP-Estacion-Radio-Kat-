@@ -471,6 +471,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
 
         btnBorrarDatoTabla.setBackground(new java.awt.Color(153, 0, 0));
         btnBorrarDatoTabla.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
+        btnBorrarDatoTabla.setForeground(new java.awt.Color(255, 255, 255));
         btnBorrarDatoTabla.setText("Borrar ");
         btnBorrarDatoTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

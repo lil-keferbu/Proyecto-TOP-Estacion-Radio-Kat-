@@ -348,7 +348,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         jPanel8.add(boxNumeroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 340, -1));
 
         boxNombrePropietario.setBackground(new java.awt.Color(242, 242, 242));
-        boxNombrePropietario.setFont(new java.awt.Font("Myanmar Text", 0, 12)); // NOI18N
+        boxNombrePropietario.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         boxNombrePropietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         boxNombrePropietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,7 +379,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableRegistroTurno);
 
-        jPanel8.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1002, 170));
+        jPanel8.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1000, 170));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -393,7 +393,7 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 34, 99, 33));
+        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 34, 110, 33));
 
         txtBusqueda.setBorder(null);
         txtBusqueda.addActionListener(new java.awt.event.ActionListener() {
@@ -437,11 +437,9 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
         jLabel7.setText("Hora de finalización:");
         jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 170, -1));
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 1040, 510));
-
         jPanel9.setBackground(new java.awt.Color(216, 216, 216));
 
-        btnAsignarTurno.setBackground(new java.awt.Color(255, 255, 255));
+        btnAsignarTurno.setBackground(new java.awt.Color(153, 255, 50));
         btnAsignarTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion_ingresos_radio_kat/Imegenes/Iconos/Asignar.png"))); // NOI18N
         btnAsignarTurno.setToolTipText("Asignar Turno");
         btnAsignarTurno.addActionListener(new java.awt.event.ActionListener() {
@@ -477,9 +475,9 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                 .addComponent(btnAsignarTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
                 .addComponent(btnLimpiarFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 708, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 652, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
-                .addGap(151, 151, 151))
+                .addGap(17, 17, 17))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,11 +488,15 @@ public class RegistroTurnoGUI extends javax.swing.JFrame {
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAsignarTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLimpiarFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 660, 1180, 70));
+        jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 990, 100));
+
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 1040, 590));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

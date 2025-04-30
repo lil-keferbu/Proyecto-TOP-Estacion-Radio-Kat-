@@ -474,15 +474,12 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         btnBuscarUnidad.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         btnBuscarUnidad.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarUnidad.setText("Buscar");
-        btnBuscarUnidad.setMaximumSize(new java.awt.Dimension(59, 38));
-        btnBuscarUnidad.setMinimumSize(new java.awt.Dimension(59, 38));
-        btnBuscarUnidad.setPreferredSize(new java.awt.Dimension(59, 38));
         btnBuscarUnidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarUnidadActionPerformed(evt);
             }
         });
-        jPanel5.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 80, 30));
+        jPanel5.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, 30));
         jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 220, 30));
 
         btnPegarCalcularUniadadYPropietario.setBackground(new java.awt.Color(51, 102, 0));

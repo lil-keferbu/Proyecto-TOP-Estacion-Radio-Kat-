@@ -673,7 +673,7 @@ public class ReportesGUI extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 80, 30));
+        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 100, 30));
         jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 300, 30));
 
         txtBuscar.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
