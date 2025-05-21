@@ -10,9 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
-
-
-
 /**
  *
  * @author User
@@ -36,7 +33,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         );
         jTableRegistroUnidad.setModel(model);
 
-     }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -488,7 +485,7 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
                 btnBuscarUnidadActionPerformed(evt);
             }
         });
-        jPanel6.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
+        jPanel6.add(btnBuscarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
         jPanel6.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 240, 20));
 
         txtBuscarPlaca.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
@@ -516,12 +513,12 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 51, 102));
         jLabel4.setText("Número comercial:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 170, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 51, 102));
         jLabel2.setText("Nombre del propietario: ");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 192, 20));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 192, 20));
 
         jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 51, 102));
@@ -788,109 +785,6 @@ public class RegistroUnidadGUI extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnBuscarUnidadActionPerformed
-
-    ///Codigo de respaldo 
-    /*
-       private void btnBuscarUnidadActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
-        String placaBuscada = txtBuscarPlaca.getText().trim();
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableRegistroUnidad.getModel();
-
-        boolean encontrado = false;
-        for (int i = 0; i < model.getRowCount(); i++) {
-            if (model.getValueAt(i, 0).toString().equalsIgnoreCase(placaBuscada)) {
-                jTableRegistroUnidad.setRowSelectionInterval(i, i);
-                encontrado = true;
-                break;
-            }
-        }
-
-        if (!encontrado) {
-            JOptionPane.showMessageDialog(this, "No se encontró ninguna unidad con esa placa.", "Resultado de búsqueda", JOptionPane.INFORMATION_MESSAGE);
-        }
-
-    }                                               
-
-    
-     */
-//IMPLEMENTACION QUE FUNCIONA 
-    /*
-       private void btnBuscarUnidadActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
-        String placaBuscada = txtBuscarPlaca.getText().trim();
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableRegistroUnidad.getModel();
-
-        boolean encontrado = false;
-        for (int i = 0; i < model.getRowCount(); i++) {
-            if (model.getValueAt(i, 0).toString().equalsIgnoreCase(placaBuscada)) {
-                jTableRegistroUnidad.setRowSelectionInterval(i, i);
-                encontrado = true;
-                break;
-            }
-        }
-
-        if (!encontrado) {
-            JOptionPane.showMessageDialog(this, "No se encontró ninguna unidad con esa placa.", "Resultado de búsqueda", JOptionPane.INFORMATION_MESSAGE);
-        }
-
-    }            
-     */
-    //Implementar busqueda´ por nombre 
-    /*
-     String termino = txtBusqueda.getText().trim().toLowerCase();
-
-        if (termino.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Escribe el nombre del propietario o la placa a buscar.");
-            return;
-        }
-
-        UnidadDAO unidadDAO = new UnidadDAO();
-        List<Object[]> unidades = unidadDAO.obtenerUnidades();
-
-        boolean encontrado = false;
-
-        for (Object[] unidad : unidades) {
-            String placa = ((String) unidad[0]).toLowerCase();
-            String nombrePropietario = ((String) unidad[1]).toLowerCase();
-            String tipoUnidad = (String) unidad[4];
-
-            if (placa.contains(termino) || nombrePropietario.contains(termino)) {
-                double ingresosBrutos = 0.0;
-                double comision = CalculoIngresos.calcularComisionTotal(ingresosBrutos, tipoUnidad);
-                double ganancia = CalculoIngresos.calcularGananciaPropietario(ingresosBrutos, comision);
-
-                // Agregar fila a la tabla
-                model.addRow(new Object[]{
-                    "", // Fecha
-                    tipoUnidad,
-                    unidad[1], // Propietario (nombre original con mayúsculas)
-                    "", // Ingresos Brutos vacío
-                    tipoUnidad.equalsIgnoreCase("Propietario unico") ? "10%" : "5%",
-                    String.format("%.2f", comision),
-                    String.format("%.2f", ganancia)
-                });
-
-                // Mostrar mensaje según tipo
-                if (tipoUnidad.equalsIgnoreCase("Propietario unico")) {
-                    JOptionPane.showMessageDialog(this,
-                            "Propietario único encontrado.\nAsignarle 10% de comisión e ingresar su ingreso bruto correspondiente.",
-                            "Propietario único", JOptionPane.INFORMATION_MESSAGE);
-                } else if (tipoUnidad.equalsIgnoreCase("Chofer externo")) {
-                    JOptionPane.showMessageDialog(this,
-                            "Chofer externo encontrado.\nAsignarle 5% de comisión e ingresar su ingreso bruto correspondiente.",
-                            "Chofer externo", JOptionPane.INFORMATION_MESSAGE);
-                }
-
-                encontrado = true;
-                break;
-            }
-        }
-
-        if (!encontrado) {
-            JOptionPane.showMessageDialog(this, "No se encontró ningún registro con ese nombre o placa.");
-        }
-
-     */
 
     private void txtBuscarPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPlacaActionPerformed
 

@@ -7,11 +7,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LoginControlador {
-
+  
     String bd = "datoslogin";
-    String url = "jdbc:mysql://localhost:3310/";
+    String url = "jdbc:mysql://localhost:3306/";
     String Nombre = "root";
-    String password = "";
+    String password = "JGff404aISc";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection cx;
 

@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 public class CrearCuentaControlador {
 
     String bd = "usuariosinvitados";
-    String url = "jdbc:mysql://localhost:3310/";
+    String url = "jdbc:mysql://localhost:3306/";
     String usuario = "root";
-    String password = "";
+    String password = "JGff404aISc";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection cx;
 

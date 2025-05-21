@@ -3,17 +3,19 @@ package gestion_ingresos_radio_kat.UI.Propietarios;
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.CalculoIngresos;
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.RegistroIngresosDAO;
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.UnidadDAO;
+
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.ReportesGUI;
 import gestion_ingresos_radio_kat.UI.RegistroUnidadGUI;
 
 import java.awt.Color;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,14 +35,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
                 new Object[]{"Fecha", "Unidad", "Propietario", "Ingresos Brutos", "Comisión (%)", "Comisión Total", "Ganancia Propietario"},
                 0
         );
-        jTableGestionIngresos.setModel(model); // Asignar el modelo a la tabla
-        //jTableGestionIngresos.setModel(model); // Asignar el modelo a la tabla
-
+        jTableGestionIngresos.setModel(model); // Asignar el modelo a la tabla        
     }
-
-    /*
-    
-     */
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -359,7 +356,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
                 txtIngresosBrutosActionPerformed(evt);
             }
         });
-        jPanel9.add(txtIngresosBrutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 140, 20));
+        jPanel9.add(txtIngresosBrutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 140, 20));
 
         txtComisionPorcentaje.setBackground(new java.awt.Color(204, 204, 204));
         txtComisionPorcentaje.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
@@ -369,10 +366,10 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
                 txtComisionPorcentajeActionPerformed(evt);
             }
         });
-        jPanel9.add(txtComisionPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 160, 20));
+        jPanel9.add(txtComisionPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 160, 20));
         jPanel9.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 200, 20));
-        jPanel9.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 160, 20));
-        jPanel9.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 140, 20));
+        jPanel9.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 160, 20));
+        jPanel9.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 140, 20));
 
         jPanel6.setBackground(new java.awt.Color(216, 216, 216));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -516,7 +513,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel8.setText("Comisión (%):");
-        jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 131, -1));
+        jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 131, -1));
 
         jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 960, 570));
 
@@ -558,6 +555,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnRegistrarUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUnidadActionPerformed
+
         try {
             Date fecha = (Date) jSpDiaMesAnio.getValue();
             String fechaStr = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
@@ -606,113 +604,9 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_btnRegistrarUnidadActionPerformed
 
-    //validacion a implementar 
-    //Implementacion anterior que sirve
-    /*
-   
-     private void btnRegistrarUnidadActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-
-        try {
-            Date fecha = (Date) jSpDiaMesAnio.getValue();
-            String fechaStr = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
-            String tipoPropietario = RegistroUnidadGUI.ultimoTipoUnidadRegistrada;
-            String propietario = RegistroUnidadGUI.ultimoNombrePropietarioRegistrado;
-
-            // Validar campos
-            if (tipoPropietario == null || tipoPropietario.isEmpty() || propietario == null || propietario.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Actualice primero la unidad y propietario.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            double ingresosBrutos = Double.parseDouble(txtIngresosBrutos.getText().trim());
-            double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresosBrutos, tipoPropietario);
-            double ganancia = ingresosBrutos - comisionTotal;
-
-            // Obtener la placa desde la base de datos (unidadDAO)
-            UnidadDAO unidadDAO = new UnidadDAO();
-            String placa = unidadDAO.obtenerPlacaPorPropietario(propietario);
-
-            if (placa == null || placa.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No se encontró la placa para: " + propietario, "Advertencia", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-
-            // Agregar fila a la tabla con todos los datos
-            model.addRow(new Object[]{
-                fechaStr,
-                tipoPropietario,
-                propietario,
-                placa,
-                String.format("%.2f", ingresosBrutos),
-                tipoPropietario.equalsIgnoreCase("Propietario unico") ? "10%" : "5%",
-                String.format("%.2f", comisionTotal),
-                String.format("%.2f", ganancia)
-            });
-
-            // Limpiar campos
-            //txtIngresosBrutos.setText("");
-            //txtComisionPorcentaje.setText("");
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese valores numéricos válidos.", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }                                                  
-
-     */
-    //Implementacion que sirve 
-    /*'
-     private void btnRegistrarUnidadActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-
-        try {
-            Date fecha = (Date) jSpDiaMesAnio.getValue();
-            String fechaStr = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
-            String tipoPropietario = RegistroUnidadGUI.ultimoTipoUnidadRegistrada;
-            String propietario = RegistroUnidadGUI.ultimoNombrePropietarioRegistrado;
-
-            // Validar campos
-            if (tipoPropietario == null || tipoPropietario.isEmpty() || propietario == null || propietario.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Actualice primero la unidad y propietario.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            double ingresosBrutos = Double.parseDouble(txtIngresosBrutos.getText().trim());
-            double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresosBrutos, tipoPropietario);
-            double ganancia = ingresosBrutos - comisionTotal;
-
-            // Obtener la placa desde la base de datos (unidadDAO)
-            UnidadDAO unidadDAO = new UnidadDAO();
-            String placa = unidadDAO.obtenerPlacaPorPropietario(propietario);
-
-            if (placa == null || placa.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No se encontró la placa para: " + propietario, "Advertencia", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-
-            // Agregar fila a la tabla con todos los datos
-            model.addRow(new Object[]{
-                fechaStr,
-                tipoPropietario,
-                propietario,
-                placa,
-                String.format("%.2f", ingresosBrutos),
-                tipoPropietario.equalsIgnoreCase("Propietario unico") ? "10%" : "5%",
-                String.format("%.2f", comisionTotal),
-                String.format("%.2f", ganancia)
-            });
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese valores numéricos válidos.", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }         
-     */
+ 
 
     private void btnLimpiarFormulario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormulario1ActionPerformed
         // TODO add your handling code here:
@@ -821,7 +715,8 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIngresosBrutosActionPerformed
 
     private void txtComisionPorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComisionPorcentajeActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_txtComisionPorcentajeActionPerformed
 
     private void btnBuscarUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUnidadActionPerformed
@@ -843,6 +738,7 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
             String tipoUnidad = (String) unidad[4];
 
             if (placa.contains(termino) || nombrePropietario.contains(termino)) {
+
                 double ingresosBrutos = 0.0;
                 double comision = CalculoIngresos.calcularComisionTotal(ingresosBrutos, tipoUnidad);
                 double ganancia = CalculoIngresos.calcularGananciaPropietario(ingresosBrutos, comision);
@@ -880,6 +776,13 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnBuscarUnidadActionPerformed
 
+    private String obtenerFechaActual() {
+        LocalDate fechaActual = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        return fechaActual.format(formatter);
+    }
+
+
     private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusquedaActionPerformed
@@ -914,38 +817,6 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Campos actualizados correctamente.");
     }//GEN-LAST:event_btnActualizarActionPerformed
 
-//Metodo que ya funciona
-    /*
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        String unidad = RegistroUnidadGUI.ultimoTipoUnidadRegistrada;
-        String propietario = RegistroUnidadGUI.ultimoNombrePropietarioRegistrado;
-
-        if (unidad.isEmpty() || propietario.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "No hay unidad registrada. Registre una unidad primero.",
-                    "Advertencia",
-                    JOptionPane.WARNING_MESSAGE
-            );
-            return;
-        }
-
-        DefaultTableModel model = (DefaultTableModel) jTableGestionIngresos.getModel();
-        // Actualizar todas las filas existentes o agregar una nueva si está vacía
-        if (model.getRowCount() == 0) {
-            model.addRow(new Object[]{"", unidad, propietario, "", "", ""});
-        } else {
-            for (int i = 0; i < model.getRowCount(); i++) {
-                if (model.getValueAt(i, 1) == null || model.getValueAt(i, 1).toString().isEmpty()) {
-                    model.setValueAt(unidad, i, 1); // Columna "Unidad"
-                    model.setValueAt(propietario, i, 2); // Columna "Propietario"
-                }
-            }
-        }
-
-        JOptionPane.showMessageDialog(this, "Campos actualizados correctamente.");
-    }     
-     */
-
     private void btnPegarCalcularUniadadYPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPegarCalcularUniadadYPropietarioActionPerformed
         UnidadDAO unidadDAO = new UnidadDAO();
         List<Object[]> unidades = unidadDAO.obtenerUnidades();
@@ -975,6 +846,8 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
         }
 
         JOptionPane.showMessageDialog(this, "Datos cargados correctamente desde la base de datos radio_kat.");
+
+
     }//GEN-LAST:event_btnPegarCalcularUniadadYPropietarioActionPerformed
 
     private void btnGuardarRegistrosIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarRegistrosIngresosActionPerformed
@@ -1039,96 +912,8 @@ public class GestionIngresosGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGuardarRegistrosIngresosActionPerformed
 
-    //IMPLEMENTACION RECIENTE
-    //IMPLEMENTACION ANTERIOR FUNCIONAL
-    /*
-     
-    private void btnGuardarRegistrosIngresosActionPerformed(java.awt.event.ActionEvent evt) {                                                            
-    RegistroIngresosDAO dao = new RegistroIngresosDAO();
-        UnidadDAO unidadDAO = new UnidadDAO();
-        boolean errorOcurrido = false;
-
-        for (int i = 0; i < model.getRowCount(); i++) {
-            try {
-                String fecha = model.getValueAt(i, 0) != null ? model.getValueAt(i, 0).toString() : "";
-                String tipoPropietario = model.getValueAt(i, 1) != null ? model.getValueAt(i, 1).toString().trim() : "";
-                String nombrePropietario = model.getValueAt(i, 2) != null ? model.getValueAt(i, 2).toString().trim() : "";
-                String ingresosBrutosStr = model.getValueAt(i, 3) != null ? model.getValueAt(i, 3).toString().replaceAll("[^\\d.]", "") : "0";
-                //String tipoPropietario = model.getValueAt(i, 4) != null ? model.getValueAt(i, 4).toString().trim() : "";
-
-                if (fecha.isEmpty() || nombrePropietario.isEmpty() || ingresosBrutosStr.isEmpty() || tipoPropietario.isEmpty()) {
-                    JOptionPane.showMessageDialog(this,
-                            "Faltan datos en la fila " + (i + 1),
-                            "Error",
-                            JOptionPane.ERROR_MESSAGE
-                    );
-                    errorOcurrido = true;
-                    continue;
-                }
-
-                double ingresosBrutos = Double.parseDouble(ingresosBrutosStr);
-                double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresosBrutos, tipoPropietario);
-                double ganancia = CalculoIngresos.calcularGananciaPropietario(ingresosBrutos, comisionTotal);
-
-                // Actualizar la tabla con los valores calculados
-                model.setValueAt(String.format("%.2f", comisionTotal), i, 5);
-                model.setValueAt(String.format("%.2f", ganancia), i, 6);
-
-                // Obtener la placa
-                String placa = unidadDAO.obtenerPlacaPorPropietario(nombrePropietario);
-                if (placa == null || placa.isEmpty()) {
-                    JOptionPane.showMessageDialog(this,
-                            "No se encontró la placa para: " + nombrePropietario + ". Registre la unidad primero.",
-                            "Error",
-                            JOptionPane.ERROR_MESSAGE
-                    );
-                    errorOcurrido = true;
-                    continue;
-                }
-
-                // Guardar en la BD
-                boolean guardado = dao.guardarRegistro(fecha, placa, ingresosBrutos, comisionTotal, ganancia);
-                if (!guardado) {
-
-                    JOptionPane.showMessageDialog(this,
-                            "Error al guardar la fila " + (i + 1),
-                            "Error",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-
-                    errorOcurrido = true;
-                } else {
-                    System.out.println(" Fila " + (i + 1) + " guardada correctamente.");
-                }
-
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this,
-                        "Formato inválido en la fila " + (i + 1) + ". Use solo números.",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE
-                );
-                errorOcurrido = true;
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this,
-                        "Error en la fila " + (i + 1) + ": " + e.getMessage(),
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE
-                );
-                errorOcurrido = true;
-            }
-        }
-
-        if (!errorOcurrido) {
-            JOptionPane.showMessageDialog(this,
-                    "Todos los registros se guardaron correctamente.",
-                    "Éxito",
-                    JOptionPane.INFORMATION_MESSAGE
-            );
-        }
-    }                                                           
-
-
-     */
+   
+ 
     /**
      * @param args the command line arguments
      */

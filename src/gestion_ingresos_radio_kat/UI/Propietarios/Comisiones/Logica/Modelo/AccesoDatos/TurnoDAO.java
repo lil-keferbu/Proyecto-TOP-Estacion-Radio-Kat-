@@ -12,9 +12,9 @@ import javax.swing.JOptionPane;
 
 public class TurnoDAO {
 
-    private final String URL = "jdbc:mysql://localhost:3310/registroturno";
+    private final String URL = "jdbc:mysql://localhost:3306/registroturno";
     private final String USER = "root";
-    private final String PASSWORD = "";
+    private final String PASSWORD = "JGff404aISc";
 
     public Connection conectar() throws SQLException {
         return java.sql.DriverManager.getConnection(URL, USER, PASSWORD);

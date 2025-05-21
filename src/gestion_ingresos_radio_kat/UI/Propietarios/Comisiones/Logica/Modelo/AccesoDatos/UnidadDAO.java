@@ -7,9 +7,9 @@ import javax.swing.JOptionPane;
 
 public class UnidadDAO {
 
-    private final String URL = "jdbc:mysql://localhost:3310/registrounidades";
+    private final String URL = "jdbc:mysql://localhost:3306/registrounidades";
     private final String USER = "root";
-    private final String PASSWORD = "";
+    private final String PASSWORD = "JGff404aISc";
 
     public Connection conectar() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
@@ -218,7 +218,7 @@ public class UnidadDAO {
         return numeros;
     }
 
-    //Nuevos metodos 
+    //Metodo obtenerEstadoUnidadPorPropietario
     public String obtenerEstadoUnidadPorPropietario(String nombrePropietario) {
         String sql = "SELECT e.nombre_estado FROM Unidad u "
                 + "JOIN Propietario p ON u.id_propietario = p.id_propietario "
@@ -249,29 +249,7 @@ public class UnidadDAO {
         return horarios;
     }
 
-    //Nuevo metodo 
-    // En UnidadDAO.java
-    /* public double obtenerIngresoBrutoPorPropietario(String nombrePropietario) {
-        String sql = "SELECT SUM(monto_pago) AS ingreso_bruto FROM Pago "
-                + "JOIN Unidad u ON Pago.id_unidad = u.id_unidad "
-                + "JOIN Propietario p ON u.id_propietario = p.id_propietario "
-                + "WHERE p.nombre = ?";
-
-        try (Connection conn = conectar(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, nombrePropietario);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getDouble("ingreso_bruto");
-                }
-            }
-        } catch (SQLException e) {
-            System.err.println("Error al obtener ingreso bruto: " + e.getMessage());
-        }
-        return 0.0; // Si no hay registros o hay error
-    }*/
-    
-    
-    
+ 
     public double obtenerIngresoBrutoPorPropietario(String nombrePropietario) {
         String sql = "SELECT SUM(ri.ingresos_brutos) AS ingreso_bruto "
                 + "FROM gestioningresos.RegistroIngresos ri "
@@ -290,5 +268,7 @@ public class UnidadDAO {
             return 0.0;
         }
     }
-
+    
+   
+  
 }

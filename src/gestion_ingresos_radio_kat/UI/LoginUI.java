@@ -114,17 +114,16 @@ public class LoginUI extends javax.swing.JFrame {
         JpEntrar.setLayout(JpEntrarLayout);
         JpEntrarLayout.setHorizontalGroup(
             JpEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpEntrarLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpEntrarLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         JpEntrarLayout.setVerticalGroup(
             JpEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpEntrarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addContainerGap())
+            .addGroup(JpEntrarLayout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         Backgraund.add(JpEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 120, -1));
@@ -166,34 +165,21 @@ public class LoginUI extends javax.swing.JFrame {
                 JpCrearCuentaMouseExited(evt);
             }
         });
+        JpCrearCuenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Crear cuenta");
+        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
+        JpCrearCuenta.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 20));
 
-        javax.swing.GroupLayout JpCrearCuentaLayout = new javax.swing.GroupLayout(JpCrearCuenta);
-        JpCrearCuenta.setLayout(JpCrearCuentaLayout);
-        JpCrearCuentaLayout.setHorizontalGroup(
-            JpCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpCrearCuentaLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel6)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        JpCrearCuentaLayout.setVerticalGroup(
-            JpCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpCrearCuentaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-
-        Backgraund.add(JpCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 160, 40));
+        Backgraund.add(JpCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,15 +255,19 @@ public class LoginUI extends javax.swing.JFrame {
                 return;
             }
 
-            // Si pasa las validaciones anteriores, se permite continuar
-            String checkQuery = "SELECT * FROM administrador WHERE Nombre = ?";
+            
+            String checkQuery = "SELECT * FROM administrador WHERE Nombre = ? AND password = ?";
             PreparedStatement checkSt = cx.conectar().prepareStatement(checkQuery);
             checkSt.setString(1, nombre);
+            checkSt.setString(2, passIngresada);
             ResultSet rs = checkSt.executeQuery();
 
             if (rs.next()) {
                 // El usuario ya existe y la contraseña es válida
-                System.out.println("Usuario validado: " + nombre);
+                //System.out.println("Usuario validado: " + nombre);
+                String mensaje = "Bienvenido nuevamente " + nombre;
+                JOptionPane.showMessageDialog(this, mensaje, "Ingreso Exitoso", JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(this, "Usuario valido  " + nombre + " registrado .", "", JOptionPane.INFORMATION_MESSAGE);
                 RegistroUnidadGUI registroUnidad = new RegistroUnidadGUI();
                 registroUnidad.setVisible(true);
                 this.dispose();
@@ -285,7 +275,11 @@ public class LoginUI extends javax.swing.JFrame {
                 // Registrar nuevo usuario con contraseña válida
                 int inserted = registrarUsuario(nombre, passIngresada);
                 if (inserted > 0) {
-                    System.out.println("Nuevo usuario " + nombre + " registrado exitosamente.");
+                    //  System.out.println("Nuevo usuario " + nombre + " registrado exitosamente.");
+                    //JOptionPane.showMessageDialog(this, "Nuevo usuario", nombre + "registrado  exitosamente", JOptionPane.INFORMATION_MESSAGE);
+                    String mensaje = "Nuevo usuario registrado exitosamente\n\nNombre: " + nombre;
+                    JOptionPane.showMessageDialog(this, mensaje, "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
+
                     RegistroUnidadGUI registroUnidad = new RegistroUnidadGUI();
                     registroUnidad.setVisible(true);
                     this.dispose();

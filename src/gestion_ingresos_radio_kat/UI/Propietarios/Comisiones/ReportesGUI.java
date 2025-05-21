@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gestion_ingresos_radio_kat.UI.Propietarios.Comisiones;
 
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.CalculoIngresos;
@@ -9,21 +5,13 @@ import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.Acces
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.Controladores_Vista_Logica.Semanalmente;
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.TurnoDAO;
 import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.AccesoDatos.UnidadDAO;
-import gestion_ingresos_radio_kat.UI.Propietarios.Comisiones.Logica.Modelo.Unidad;
 import gestion_ingresos_radio_kat.UI.Propietarios.GestionIngresosGUI;
 import gestion_ingresos_radio_kat.UI.Propietarios.RegistroTurnoGUI;
 
 import java.awt.Color;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 //Librerias que se ocupan para generar  reportes pdf 
 // Importaciones necesarias
@@ -31,7 +19,6 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -49,11 +36,11 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.pdf.PdfPCell;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.TemporalAdjusters;
 
-/**
- *
- * @author User
- */
 public class ReportesGUI extends javax.swing.JFrame {
 
     private JPanel selectedPanel = null;
@@ -79,6 +66,13 @@ public class ReportesGUI extends javax.swing.JFrame {
         // Cargar datos en comboboxes
         cargarComboboxes();
 
+        // En el método initCustomComponents() de ReportesGUI:
+        DefaultComboBoxModel<String> modelTipoReporte = new DefaultComboBoxModel<>();
+
+        modelTipoReporte.addElement("Diario");
+        modelTipoReporte.addElement("Semanal");
+
+        boxTipoReporte.setModel(modelTipoReporte);
     }
 
     private void cargarComboboxes() {
@@ -111,134 +105,6 @@ public class ReportesGUI extends javax.swing.JFrame {
 
     }
 
-    /* private void generarReporteDiarioPDF() {
-        Document documento = new Document();
-        try {
-            String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Diario.pdf"));
-            documento.open();
-
-            // Crear tabla con 7 columnas (Diario)
-            PdfPTable tabla = new PdfPTable(7);
-            tabla.addCell("Fecha");
-            tabla.addCell("Unidad");
-            tabla.addCell("Propietario");
-            tabla.addCell("Ingresos Brutos");
-            tabla.addCell("Comisión (%)");
-            tabla.addCell("Comisión Total");
-            tabla.addCell("Ganancia Propietario");
-
-            // Conexión a BD Diario
-            String url = "jdbc:mysql://localhost:3310/diario";
-            String user = "root";
-            String password = "";
-
-            try (Connection conn = DriverManager.getConnection(url, user, password); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery("SELECT * FROM Diario")) {
-
-                while (rs.next()) {
-                    tabla.addCell(rs.getString("fecha"));
-                    tabla.addCell(rs.getString("unidad"));
-                    tabla.addCell(rs.getString("propietario"));
-                    tabla.addCell(String.valueOf(rs.getDouble("ingresos_brutos")));
-                    tabla.addCell(String.valueOf(rs.getDouble("comision_porcentaje")));
-                    tabla.addCell(String.valueOf(rs.getDouble("comision_total")));
-                    tabla.addCell(String.valueOf(rs.getDouble("ganancia_propietario")));
-                }
-
-                documento.add(tabla);
-            } catch (SQLException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Error al acceder a la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-
-            documento.close();
-            JOptionPane.showMessageDialog(this, "PDF Diario generado en el Escritorio");
-        } catch (DocumentException | IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al generar PDF: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }*/
- /*private void generarReporteSemanalPDF() {
-        Document documento = new Document();
-        try {
-            String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Semanal.pdf"));
-            documento.open();
-
-            // Crear tabla con 8 columnas (Semanalmente)
-            PdfPTable tabla = new PdfPTable(8);
-            tabla.addCell("Fecha");
-            tabla.addCell("Unidad");
-            tabla.addCell("Propietario");
-            tabla.addCell("Horario Registrado");
-            tabla.addCell("Estado Unidad");
-            tabla.addCell("Ingresos Brutos");
-            tabla.addCell("Comisión (%)");
-            tabla.addCell("Ganancia Total");
-
-            // Conexión a BD Semanalmente
-            String url = "jdbc:mysql://localhost:3310/semanalmente";
-            String user = "root";
-            String password = "";
-
-            try (Connection conn = DriverManager.getConnection(url, user, password); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery("SELECT * FROM Semanalmente")) {
-
-                while (rs.next()) {
-                    tabla.addCell(rs.getString("fecha"));
-                    tabla.addCell(rs.getString("unidad"));
-                    tabla.addCell(rs.getString("propietario"));
-                    tabla.addCell(rs.getString("horario_registrado"));
-                    tabla.addCell(rs.getString("estado_unidad"));
-                    tabla.addCell(String.valueOf(rs.getDouble("ingresos_brutos")));
-                    tabla.addCell(String.valueOf(rs.getDouble("comision_porcentaje")));
-                    tabla.addCell(String.valueOf(rs.getDouble("ganancia_total")));
-                }
-
-                documento.add(tabla);
-            } catch (SQLException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Error al acceder a la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-
-            documento.close();
-            JOptionPane.showMessageDialog(this, "PDF Semanal generado en el Escritorio");
-        } catch (DocumentException | IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al generar PDF: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }*/
-
- /*
-    
-        try {
-            // Cargar nombres de propietarios
-            UnidadDAO unidadDAO = new UnidadDAO();
-            DefaultComboBoxModel<String> modelNombres = new DefaultComboBoxModel<>();
-            modelNombres.addAll(unidadDAO.obtenerNombresPropietarios());
-            boxNombre.setModel(modelNombres);
-
-            // Cargar horarios
-            TurnoDAO turnoDAO = new TurnoDAO();
-            DefaultComboBoxModel<String> modelHorarios = new DefaultComboBoxModel<>();
-            modelHorarios.addAll(turnoDAO.obtenerHorariosRegistrados());
-            boxHorarioRegistrado.setModel(modelHorarios);
-
-            // Cargar tipos de unidad
-            DefaultComboBoxModel<String> modelTipos = new DefaultComboBoxModel<>();
-            modelTipos.addElement("Propietario único");
-            modelTipos.addElement("Chofer externo");
-            boxTipoUnidad.setModel(modelTipos);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error al cargar datos: " + e.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    
-    
-    
-     */
     // Método que suma todas las ganancias de la tabla de ReportesGUI
     public double calcularGananciaTotalEstacion() {
         double gananciaTotal = 0.0;
@@ -543,7 +409,7 @@ public class ReportesGUI extends javax.swing.JFrame {
 
         boxTipoReporte.setBackground(new java.awt.Color(242, 242, 242));
         boxTipoReporte.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
-        boxTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diario", "Semanalmente" }));
+        boxTipoReporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diario", "Semanalmente", " " }));
         boxTipoReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxTipoReporteActionPerformed(evt);
@@ -768,50 +634,112 @@ public class ReportesGUI extends javax.swing.JFrame {
     private void btnAddTableReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTableReporteActionPerformed
 
         try {
-            // Validación de campos
-            if (jSDiaMesAnio.getValue() == null
-                    || boxNombre.getSelectedItem() == null
-                    || boxTipoUnidad.getSelectedItem() == null
-                    || boxHorarioRegistrado.getSelectedItem() == null) {
+            String tipoReporte = (String) boxTipoReporte.getSelectedItem();
 
-                JOptionPane.showMessageDialog(this,
-                        "Todos los campos son obligatorios",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                return;
+            // Obtener el modelo de la tabla
+            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
+
+            // Eliminar fila de suma previa (si existe)
+            for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                boolean filaResumen = true;
+                for (int j = 0; j < model.getColumnCount() - 1; j++) {
+                    Object cell = model.getValueAt(i, j);
+                    if (cell != null && !cell.toString().isBlank()) {
+                        filaResumen = false;
+                        break;
+                    }
+                }
+                if (filaResumen) {
+                    model.removeRow(i);
+                }
             }
 
-            // Obtener valores
-            Date fecha = (Date) jSDiaMesAnio.getValue();
-            String nombre = boxNombre.getSelectedItem().toString();
-            String tipoUnidad = boxTipoUnidad.getSelectedItem().toString().replace("ú", "u"); // Normalizar
-            String horario = boxHorarioRegistrado.getSelectedItem().toString();
+            if ("Semanal".equals(tipoReporte)) {
+                if (jSDiaMesAnio.getValue() == null) {
+                    JOptionPane.showMessageDialog(this, "Seleccione una fecha para el reporte semanal.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
-            // Obtener datos
-            UnidadDAO unidadDAO = new UnidadDAO();
-            String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
-            double ingresoBruto = unidadDAO.obtenerIngresoBrutoPorPropietario(nombre);
+                Date fechaSeleccionada = (Date) jSDiaMesAnio.getValue();
+                LocalDate fecha = fechaSeleccionada.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                LocalDate inicioSemana = fecha.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+                LocalDate finSemana = fecha.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
 
-            // Calcular valores
-            //double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresoBruto, tipoUnidad);
-            //double gananciaPropietario = ingresoBruto - comisionTotal;
-            // Dentro de btnAddTableReporteActionPerformed
-            double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresoBruto, tipoUnidad);
-            double gananciaPropietario = CalculoIngresos.calcularGananciaPropietario(ingresoBruto, comisionTotal);
+                Diario diarioDAO = new Diario();
+                double sumaComisiones = diarioDAO.obtenerSumaComisionesPorSemana(
+                        java.sql.Date.valueOf(inicioSemana),
+                        java.sql.Date.valueOf(finSemana)
+                );
 
-            // Formatear y agregar fila
-            String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
-            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
-            model.addRow(new Object[]{
-                fechaFormateada,
-                tipoUnidad,
-                nombre,
-                horario,
-                estadoUnidad,
-                ingresoBruto,
-                comisionTotal,
-                gananciaPropietario
-            });
+                String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fechaSeleccionada);
+
+                model.addRow(new Object[]{
+                    fechaFormateada,
+                    "", "", "", "", "", "", sumaComisiones
+                });
+
+            } else {
+                if (jSDiaMesAnio.getValue() == null
+                        || boxNombre.getSelectedItem() == null
+                        || boxTipoUnidad.getSelectedItem() == null
+                        || boxHorarioRegistrado.getSelectedItem() == null) {
+
+                    JOptionPane.showMessageDialog(this,
+                            "Todos los campos son obligatorios",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // Eliminar fila de resumen (por si ya existe)
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    boolean filaResumen = true;
+                    for (int j = 0; j < model.getColumnCount() - 1; j++) {
+                        Object cell = model.getValueAt(i, j);
+                        if (cell != null && !cell.toString().isBlank()) {
+                            filaResumen = false;
+                            break;
+                        }
+                    }
+                    if (filaResumen) {
+                        model.removeRow(i);
+                    }
+                }
+
+                Date fecha = (Date) jSDiaMesAnio.getValue();
+                String nombre = boxNombre.getSelectedItem().toString();
+                String tipoUnidad = boxTipoUnidad.getSelectedItem().toString().replace("ú", "u");
+                String horario = boxHorarioRegistrado.getSelectedItem().toString();
+
+                UnidadDAO unidadDAO = new UnidadDAO();
+                String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
+                double ingresoBruto = unidadDAO.obtenerIngresoBrutoPorPropietario(nombre);
+
+                double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresoBruto, tipoUnidad);
+                double gananciaPropietario = CalculoIngresos.calcularGananciaPropietario(ingresoBruto, comisionTotal);
+
+                String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
+                model.addRow(new Object[]{
+                    fechaFormateada,
+                    tipoUnidad,
+                    nombre,
+                    horario,
+                    estadoUnidad,
+                    ingresoBruto,
+                    comisionTotal,
+                    gananciaPropietario
+                });
+
+                // SOLO para Diario se agrega la suma
+                // Agregar fila con total de comisiones en "Ganancia Total"
+                /*
+                if (!"Semanal".equals(tipoReporte)) {
+
+                    double sumaComisionesTabla = obtenerSumaComisionesTabla();
+                    model.addRow(new Object[]{"", "", "", "", "", "", "", sumaComisionesTabla});
+                }
+                 */
+            }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this,
@@ -821,188 +749,24 @@ public class ReportesGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddTableReporteActionPerformed
 
-    /*
-    
-      try {
-        // Validación de campos
-        if (jSDiaMesAnio.getValue() == null
-                || boxNombre.getSelectedItem() == null
-                || boxTipoUnidad.getSelectedItem() == null
-                || boxHorarioRegistrado.getSelectedItem() == null) {
-
-            JOptionPane.showMessageDialog(this,
-                    "Todos los campos son obligatorios",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Obtener valores
-        Date fecha = (Date) jSDiaMesAnio.getValue();
-        String nombre = boxNombre.getSelectedItem().toString();
-        String tipoUnidad = boxTipoUnidad.getSelectedItem().toString().replace("ú", "u"); // Normalizar
-        String horario = boxHorarioRegistrado.getSelectedItem().toString();
-
-        // Obtener datos
-        UnidadDAO unidadDAO = new UnidadDAO();
-        String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
-        double ingresoBruto = unidadDAO.obtenerIngresoBrutoPorPropietario(nombre);
-
-        if (ingresoBruto <= 0.0) {
-            JOptionPane.showMessageDialog(this, "No se encontraron ingresos para el propietario: " + nombre, "Aviso", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        // Calcular valores
-        double comisionTotal = CalculoIngresos.calcularComisionTotal(ingresoBruto, tipoUnidad);
-        double gananciaPropietario = ingresoBruto - comisionTotal;
-
-        // Formatear y agregar fila
-        String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
+    private double obtenerSumaComisionesTabla() {
         DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
-        model.addRow(new Object[]{
-            fechaFormateada,       // Fecha
-            tipoUnidad,            // Unidad
-            nombre,                // Propietario
-            horario,               // Horario registrado
-            estadoUnidad,          // Estado Unidad
-            String.format("%.2f", ingresoBruto), // Ingreso Bruto
-            String.format("%.2f", comisionTotal), // Comisión
-            String.format("%.2f", gananciaPropietario) // Ganancia
-        });
+        double suma = 0.0;
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this,
-                "Error: " + e.getMessage(),
-                "Error",
-                JOptionPane.ERROR_MESSAGE);
+        for (int i = 0; i < model.getRowCount(); i++) {
+            Object valor = model.getValueAt(i, 6); // Columna "Comisión(%)"
+            if (valor != null && !valor.toString().isEmpty()) {
+                try {
+                    suma += Double.parseDouble(valor.toString());
+                } catch (NumberFormatException e) {
+                    // Ignora valores no numéricos
+                }
+            }
+        }
+
+        return suma;
     }
-    
-    
-    
-     */
- /*
-        
-    
-    
-    
-     */
-    //Otra actualizacion 
-    /*
-    
-    
-       private void btnAddTableReporteActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-        try {
-            if (jSDiaMesAnio.getValue() == null
-                    || boxNombre.getSelectedItem() == null
-                    || boxTipoUnidad.getSelectedItem() == null
-                    || boxHorarioRegistrado.getSelectedItem() == null) {
-                JOptionPane.showMessageDialog(this,
-                        "Todos los campos son obligatorios",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                return;
-            }
 
-            Date fecha = (Date) jSDiaMesAnio.getValue();
-            String nombre = boxNombre.getSelectedItem().toString();
-            String tipoUnidad = boxTipoUnidad.getSelectedItem().toString();
-            String horario = boxHorarioRegistrado.getSelectedItem().toString();
-
-            UnidadDAO unidadDAO = new UnidadDAO();
-            String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
-
-            // Aquí deberías obtener el ingreso bruto real, de momento pondré un ejemplo de 1000
-            double ingresoBruto = unidadDAO.obtenerIngresoBrutoPorPropietario(nombre);
-
-            double comisionPorcentaje = tipoUnidad.equals("Propietario único") ? 10.0 : 15.0;
-            double comisionDecimal = comisionPorcentaje / 100.0;
-            double gananciaTotal = ingresoBruto * (1 - comisionDecimal); // Fórmula: ingreso - comisión
-
-            String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
-
-            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
-
-            model.addRow(new Object[]{
-                fechaFormateada,
-                tipoUnidad,
-                nombre,
-                horario,
-                estadoUnidad,
-                ingresoBruto,
-                comisionPorcentaje,
-                gananciaTotal
-            });
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error: " + e.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-        }
-    }                    
-    
-     */
-    //Implementacion que funciona 
-    /*
-    rivate void btnAddTableReporteActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-        try {
-            // Validar campos requeridos
-            if (jSDiaMesAnio.getValue() == null
-                    || boxNombre.getSelectedItem() == null
-                    || boxTipoUnidad.getSelectedItem() == null
-                    || boxHorarioRegistrado.getSelectedItem() == null) {
-
-                JOptionPane.showMessageDialog(this,
-                        "Todos los campos son obligatorios",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            // Obtener valores
-            Date fecha = (Date) jSDiaMesAnio.getValue();
-            String nombre = boxNombre.getSelectedItem().toString();
-            String tipoUnidad = boxTipoUnidad.getSelectedItem().toString();
-            String horario = boxHorarioRegistrado.getSelectedItem().toString();
-
-            // Obtener datos adicionales
-            UnidadDAO unidadDAO = new UnidadDAO();
-            String estadoUnidad = unidadDAO.obtenerEstadoUnidadPorPropietario(nombre);
-
-            // Calcular comisión (ejemplo)
-            double comision = tipoUnidad.equals("Propietario único") ? 10.0 : 15.0;
-
-            // Formatear fecha
-            String fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").format(fecha);
-
-            // Obtener modelo de tabla
-            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
-
-            // Agregar nueva fila
-            model.addRow(new Object[]{
-                fechaFormateada,
-                tipoUnidad,
-                nombre,
-                horario,
-                estadoUnidad,
-                0.0, // Ingreso Bruto (debes implementar esta lógica)
-                comision,
-                0.0 // Ganancia Total (calcular basado en comisión e ingreso)
-            });
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error: " + e.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-        }
-
-    }                                                  
-
-     */
 
     private void btnLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormularioActionPerformed
         // TODO add your handling code here:
@@ -1033,12 +797,32 @@ public class ReportesGUI extends javax.swing.JFrame {
                 if (guardadoCorrectamente) {
                     pdfGenerado = generarReporteDiarioPDF();
                 }
-            } else if (tipoReporte.equalsIgnoreCase("Semanalmente")) {
+            }
+
+            if (tipoReporte.equalsIgnoreCase("Semanal")) {
                 guardadoCorrectamente = guardarEnSemanalmente();
                 if (guardadoCorrectamente) {
                     pdfGenerado = generarReporteSemanalPDF();
                 }
             }
+
+            /*try {
+            if (tipoReporte.equalsIgnoreCase("Diario")) {
+                guardadoCorrectamente = guardarEnDiario();
+                if (guardadoCorrectamente) {
+                    pdfGenerado = generarReporteDiarioPDF();
+                }
+            } else if (tipoReporte.equalsIgnoreCase("Semanalmente")) {
+                guardadoCorrectamente = guardarEnSemanalmente();
+                if (guardadoCorrectamente) {
+                    pdfGenerado = generarReporteSemanalPDF();
+                }
+                
+             }
+            
+            
+            
+             */
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this,
                     "Error general: " + e.getMessage(),
@@ -1047,73 +831,12 @@ public class ReportesGUI extends javax.swing.JFrame {
         }
 
         mostrarResultadoFinal(guardadoCorrectamente, pdfGenerado);
+
+
     }//GEN-LAST:event_btnGuardarBDExportarPDFActionPerformed
 
-    /*String tipoReporte = boxTipoReporte.getSelectedItem().toString();
-
-        if (tipoReporte.equalsIgnoreCase("Diario")) {
-            // Guardar en Diario
-            Diario diarioDAO = new Diario();
-            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
-            boolean guardadoCorrectamente = false;
-
-            for (int i = 0; i < model.getRowCount(); i++) {
-                try {
-                    String fecha = convertirFecha(model.getValueAt(i, 0).toString());
-                    String unidad = model.getValueAt(i, 1).toString();
-                    String propietario = model.getValueAt(i, 2).toString();
-                    double ingresosBrutos = Double.parseDouble(model.getValueAt(i, 5).toString());
-                    double comisionPorcentaje = Double.parseDouble(model.getValueAt(i, 6).toString());
-                    double gananciaPropietario = Double.parseDouble(model.getValueAt(i, 7).toString());
-
-                    boolean resultado = diarioDAO.guardarDiario(fecha, unidad, propietario, ingresosBrutos, comisionPorcentaje, (ingresosBrutos * (comisionPorcentaje / 100)), gananciaPropietario);
-                    if (resultado) {
-                        guardadoCorrectamente = true;
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-            if (guardadoCorrectamente) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Los datos se han guardado correctamente en el Diario.");
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Hubo un error al guardar los datos en el Diario.");
-            }
-
-        } else if (tipoReporte.equalsIgnoreCase("Semanalmente")) {
-            // Guardar en Semanalmente
-            Semanalmente semanalmenteDAO = new Semanalmente();
-            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
-            boolean guardadoCorrectamente = false;
-
-            for (int i = 0; i < model.getRowCount(); i++) {
-                try {
-                    String fecha = convertirFecha(model.getValueAt(i, 0).toString());
-                    String unidad = model.getValueAt(i, 1).toString();
-                    String propietario = model.getValueAt(i, 2).toString();
-                    String horarioRegistrado = model.getValueAt(i, 3).toString();
-                    String estadoUnidad = model.getValueAt(i, 4).toString();
-                    double ingresosBrutos = Double.parseDouble(model.getValueAt(i, 5).toString());
-                    double comisionPorcentaje = Double.parseDouble(model.getValueAt(i, 6).toString());
-                    double gananciaTotal = Double.parseDouble(model.getValueAt(i, 7).toString());
-
-                    boolean resultado = semanalmenteDAO.guardarSemanalmente(fecha, unidad, propietario, horarioRegistrado, estadoUnidad, ingresosBrutos, comisionPorcentaje, gananciaTotal);
-                    if (resultado) {
-                        guardadoCorrectamente = true;
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-            if (guardadoCorrectamente) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Los datos se han guardado correctamente en el reporte Semanal.");
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Hubo un error al guardar los datos en el reporte Semanal.");
-            }
-        }*/
     private boolean guardarEnDiario() {
+
         Diario diarioDAO = new Diario();
         DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
         boolean resultado = false;
@@ -1139,8 +862,10 @@ public class ReportesGUI extends javax.swing.JFrame {
             }
         }
         return resultado;
+
     }
 
+    /*
     private boolean guardarEnSemanalmente() {
         Semanalmente semanalDAO = new Semanalmente();
         DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
@@ -1169,8 +894,59 @@ public class ReportesGUI extends javax.swing.JFrame {
             }
         }
         return resultado;
+
+    }
+    
+    
+     */
+    private boolean guardarEnSemanalmente() {
+        Semanalmente dao = new Semanalmente();
+        DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
+        boolean resultado = true;
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            // En la tabla semanal, solo existen los dos valores que necesitamos
+            String fechaStr = model.getValueAt(i, 0).toString();   // dd/MM/yyyy
+            String fechaSQL = convertirFecha(fechaStr);            // yyyy-MM-dd
+            double ganancia = Double.parseDouble(model.getValueAt(i, 7).toString());
+
+            resultado &= dao.guardarSemanalmente(fechaSQL, ganancia);
+        }
+        return resultado;
     }
 
+
+    /*
+    private boolean guardarEnSemanalmente() {
+        Semanalmente semanalDAO = new Semanalmente();
+        DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
+        boolean resultado = true;
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String tipoReporte = model.getValueAt(i, 1).toString(); // Columna "Unidad"
+            if ("Semanal".equals(tipoReporte)) {
+                String fecha = model.getValueAt(i, 0).toString();
+                double gananciaTotal = Double.parseDouble(model.getValueAt(i, 7).toString());
+
+                // Guardar en Semanalmente
+                boolean exito = semanalDAO.guardarSemanalmente(
+                        fecha,
+                        "Semanal",
+                        "",
+                        "",
+                        "",
+                        0.0,
+                        0.0,
+                        gananciaTotal
+                );
+                resultado &= exito;
+            }
+        }
+        return resultado;
+    }
+    
+    
+     */
     private boolean generarReporteDiarioPDF() {
         String nombreArchivo = "Reporte_Diario.pdf";
         String rutaCarpeta = System.getProperty("user.home") + "/OneDrive/Documentos/Escritorio";
@@ -1226,79 +1002,115 @@ public class ReportesGUI extends javax.swing.JFrame {
             manejarErrorPDF(e);
             return false;
         }
-        /*String nombreArchivo = "Reporte_Diario.pdf";
-        String rutaCarpeta = System.getProperty("user.home") + "/OneDrive/Documentos/Escritorio";
+
+    }
+
+    /**
+     * Genera el PDF semanal con solo dos columnas: Fecha y Ganancia Total. El
+     * archivo se guarda en el Escritorio de OneDrive.
+     */
+    private boolean generarReporteSemanalPDF() {
+
+        String nombreArchivo = "Reporte_Semanal.pdf";
+        String rutaCarpeta = System.getProperty("user.home")
+                + "/OneDrive/Documentos/Escritorio";
         String rutaCompleta = rutaCarpeta + "/" + nombreArchivo;
 
         try {
-            // Verificar si la carpeta existe
+            // 1. Asegurar la carpeta
             File carpeta = new File(rutaCarpeta);
             if (!carpeta.exists()) {
                 carpeta.mkdirs();
             }
 
+            // 2. Preparar documento
             Document documento = new Document();
             PdfWriter.getInstance(documento, new FileOutputStream(rutaCompleta));
             documento.open();
 
-            PdfPTable tabla = new PdfPTable(7); // 7 columnas para Diario
-            agregarEncabezadosDiario(tabla);
+            /* ---------- Cabeceras ---------- */
+            Font fontTitulo = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 24,
+                    BaseColor.BLUE);
+            Paragraph titulo = new Paragraph("Reporte Semanal de Ingresos",
+                    fontTitulo);
+            titulo.setAlignment(Element.ALIGN_CENTER);
+            documento.add(titulo);
 
-            Diario diarioDAO = new Diario();
-            List<Object[]> registros = diarioDAO.obtenerTodosRegistros();
+            Font fontSubtitulo = FontFactory.getFont(FontFactory.HELVETICA, 16,
+                    BaseColor.DARK_GRAY);
+            Paragraph subtitulo = new Paragraph(
+                    "Resumen semanal de ganancias de estación.",
+                    fontSubtitulo);
+            subtitulo.setAlignment(Element.ALIGN_CENTER);
+            subtitulo.setSpacingAfter(20);
+            documento.add(subtitulo);
 
-            for (Object[] registro : registros) {
-                for (Object dato : registro) {
-                    tabla.addCell(String.valueOf(dato));
-                }
+            /* ---------- Tabla principal (2 c) ---------- */
+            PdfPTable tabla = new PdfPTable(2);                // solo 2 columnas
+            tabla.setWidthPercentage(100);
+
+            // Encabezados con estilo
+            String[] enc = {"Fecha", "Ganancia Total"};
+            for (String e : enc) {
+                PdfPCell h = new PdfPCell();
+                h.setBackgroundColor(new BaseColor(70, 130, 180));
+                h.setPhrase(new Phrase(e,
+                        FontFactory.getFont(FontFactory.HELVETICA_BOLD, 14,
+                                BaseColor.WHITE)));
+                h.setHorizontalAlignment(Element.ALIGN_CENTER);
+                h.setPadding(8);
+                tabla.addCell(h);
             }
 
+            /* ---------- Datos desde la BD ---------- */
+            Semanalmente dao = new Semanalmente();
+            List<Object[]> registros = dao.obtenerTodosRegistros();
+
+            double sumaGeneral = 0.0;
+
+            for (Object[] fila : registros) {
+                // fecha
+                PdfPCell cFecha = new PdfPCell(new Phrase(String.valueOf(fila[0])));
+                cFecha.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cFecha.setPadding(5);
+                tabla.addCell(cFecha);
+
+                // ganancia
+                PdfPCell cGan = new PdfPCell(new Phrase(String.valueOf(fila[1])));
+                cGan.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cGan.setPadding(5);
+                tabla.addCell(cGan);
+
+                // Acumulado
+                sumaGeneral += Double.parseDouble(String.valueOf(fila[1]));
+            }
+
+            /* ---------- Fila de total general ---------- */
+            PdfPCell lblTotal = new PdfPCell(new Phrase("GANANCIA TOTAL ESTACIÓN:"));
+            lblTotal.setColspan(1);
+            lblTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            lblTotal.setPadding(6);
+            tabla.addCell(lblTotal);
+
+            PdfPCell valTotal = new PdfPCell(new Phrase(String.valueOf(sumaGeneral)));
+            valTotal.setHorizontalAlignment(Element.ALIGN_CENTER);
+            valTotal.setPadding(6);
+            tabla.addCell(valTotal);
+
+            // 3. Añadir tabla y cerrar
             documento.add(tabla);
             documento.close();
 
-            return verificarPDFGenerado(rutaCompleta, "Diario");
+            return verificarPDFGenerado(rutaCompleta, "Semanal");
 
         } catch (DocumentException | IOException e) {
             manejarErrorPDF(e);
             return false;
-        }*/
-
+        }
     }
 
-    /* String nombreArchivo = "Reporte_Diario.pdf";
-        String rutaCompleta = System.getProperty("user.home") + "/Desktop/" + nombreArchivo;
-
-        try {
-            Document documento = new Document();
-            PdfWriter.getInstance(documento, new FileOutputStream(rutaCompleta));
-            documento.open();
-
-            PdfPTable tabla = new PdfPTable(7);
-            agregarEncabezadosDiario(tabla);
-
-            Diario diarioDAO = new Diario();
-            List<Object[]> registros = diarioDAO.obtenerTodosRegistros();
-
-            for (Object[] registro : registros) {
-                for (Object dato : registro) {
-                    tabla.addCell(dato.toString());
-                }
-            }
-
-            documento.add(tabla);
-            documento.close();
-
-            return verificarPDFGenerado(rutaCompleta, "Diario");
-
-        } catch (DocumentException | IOException e) {
-            manejarErrorPDF(e);
-            return false;
-        }*/
-    //Implementacion funcional
+    //Codigo utilizado 
     /*
-    
-    
-     */
     private boolean generarReporteSemanalPDF() {
         String nombreArchivo = "Reporte_Semanal.pdf";
         String rutaCarpeta = System.getProperty("user.home") + "/OneDrive/Documentos/Escritorio";
@@ -1333,6 +1145,11 @@ public class ReportesGUI extends javax.swing.JFrame {
             tabla.setWidthPercentage(100);
             agregarEncabezadosSemanalConEstilo(tabla);
 
+            PdfPCell totalCell = new PdfPCell(new Phrase("GANANCIA TOTAL ESTACIÓN:"));
+            totalCell.setColspan(7);
+            tabla.addCell(totalCell);
+            tabla.addCell(new Phrase(String.valueOf(calcularGananciaTotalEstacion())));
+
             Semanalmente semanalmenteDAO = new Semanalmente();
             List<Object[]> registros = semanalmenteDAO.obtenerTodosRegistros();
 
@@ -1355,75 +1172,7 @@ public class ReportesGUI extends javax.swing.JFrame {
             return false;
         }
 
-        /*String nombreArchivo = "Reporte_Semanal.pdf";
-        String rutaCarpeta = System.getProperty("user.home") + "/OneDrive/Documentos/Escritorio";
-        String rutaCompleta = rutaCarpeta + "/" + nombreArchivo;
-
-        try {
-            // Verificar si la carpeta existe
-            File carpeta = new File(rutaCarpeta);
-            if (!carpeta.exists()) {
-                carpeta.mkdirs();
-            }
-
-            Document documento = new Document();
-            PdfWriter.getInstance(documento, new FileOutputStream(rutaCompleta));
-            documento.open();
-
-            PdfPTable tabla = new PdfPTable(8); // 8 columnas para Semanalmente
-            agregarEncabezadosSemanal(tabla);
-
-            Semanalmente semanalmenteDAO = new Semanalmente();
-            List<Object[]> registros = semanalmenteDAO.obtenerTodosRegistros();
-
-            for (Object[] registro : registros) {
-                for (Object dato : registro) {
-                    tabla.addCell(String.valueOf(dato));
-                }
-            }
-
-            documento.add(tabla);
-            documento.close();
-
-            return verificarPDFGenerado(rutaCompleta, "Semanal");
-
-        } catch (DocumentException | IOException e) {
-            manejarErrorPDF(e);
-            return false;
-        }*/
     }
-
-    /*String nombreArchivo = "Reporte_Semanal.pdf";
-        String rutaCompleta = System.getProperty("user.home") + "/Desktop/" + nombreArchivo;
-
-        try {
-            Document documento = new Document();
-            PdfWriter.getInstance(documento, new FileOutputStream(rutaCompleta));
-            documento.open();
-
-            PdfPTable tabla = new PdfPTable(8);
-            agregarEncabezadosSemanal(tabla);
-
-            Semanalmente semanalDAO = new Semanalmente();
-            List<Object[]> registros = semanalDAO.obtenerTodosRegistros();
-
-            for (Object[] registro : registros) {
-                for (Object dato : registro) {
-                    tabla.addCell(dato.toString());
-                }
-            }
-
-            documento.add(tabla);
-            documento.close();
-
-            return verificarPDFGenerado(rutaCompleta, "Semanal");
-
-        } catch (DocumentException | IOException e) {
-            manejarErrorPDF(e);
-            return false;
-        }*/
-    //Implementacion que funciona 
-    /*
     
      */
     private void agregarEncabezadosDiario(PdfPTable tabla) {
@@ -1446,8 +1195,6 @@ public class ReportesGUI extends javax.swing.JFrame {
         tabla.addCell("Comisión (%)");
         tabla.addCell("Ganancia Total");
     }
-    //String ruta, String tipo
-    /// String rutaArchivo, String tipoReporte
 
     private boolean verificarPDFGenerado(String rutaArchivo, String tipoReporte) {
         File archivo = new File(rutaArchivo);
@@ -1459,25 +1206,6 @@ public class ReportesGUI extends javax.swing.JFrame {
             return false;
         }
 
-        /*File archivo = new File(ruta);
-        if (archivo.exists() && archivo.length() > 0) {
-            try {
-                Desktop.getDesktop().open(archivo);
-                JOptionPane.showMessageDialog(this,
-                        "PDF " + tipo + " generado con éxito!\n"
-                        + "Ubicación: " + ruta,
-                        "Éxito",
-                        JOptionPane.INFORMATION_MESSAGE);
-                return true;
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(this,
-                        "PDF generado pero no se pudo abrir:\n" + e.getMessage(),
-                        "Advertencia",
-                        JOptionPane.WARNING_MESSAGE);
-                return true;
-            }
-        }
-        return false;*/
     }
 
     private void agregarEncabezadosDiarioConEstilo(PdfPTable tabla) {
@@ -1536,79 +1264,6 @@ public class ReportesGUI extends javax.swing.JFrame {
         }
     }
 
-    //Implementacion que funciona 
-    /*
-    
-     String tipoReporte = boxTipoReporte.getSelectedItem().toString();
-
-        if (tipoReporte.equalsIgnoreCase("Diario")) {
-            // Guardar en Diario
-            Diario diarioDAO = new Diario();
-            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
-            boolean guardadoCorrectamente = false;
-
-            for (int i = 0; i < model.getRowCount(); i++) {
-                try {
-                    String fecha = convertirFecha(model.getValueAt(i, 0).toString());
-                    String unidad = model.getValueAt(i, 1).toString();
-                    String propietario = model.getValueAt(i, 2).toString();
-                    double ingresosBrutos = Double.parseDouble(model.getValueAt(i, 5).toString());
-                    double comisionPorcentaje = Double.parseDouble(model.getValueAt(i, 6).toString());
-                    double gananciaPropietario = Double.parseDouble(model.getValueAt(i, 7).toString());
-
-                    boolean resultado = diarioDAO.guardarDiario(fecha, unidad, propietario, ingresosBrutos, comisionPorcentaje, (ingresosBrutos * (comisionPorcentaje / 100)), gananciaPropietario);
-                    if (resultado) {
-                        guardadoCorrectamente = true;
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-            if (guardadoCorrectamente) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Los datos se han guardado correctamente en el Diario.");
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Hubo un error al guardar los datos en el Diario.");
-            }
-
-        } else if (tipoReporte.equalsIgnoreCase("Semanalmente")) {
-            // Guardar en Semanalmente
-            Semanalmente semanalmenteDAO = new Semanalmente();
-            DefaultTableModel model = (DefaultTableModel) jTableGenerarReportes.getModel();
-            boolean guardadoCorrectamente = false;
-
-            for (int i = 0; i < model.getRowCount(); i++) {
-                try {
-                    String fecha = convertirFecha(model.getValueAt(i, 0).toString());
-                    String unidad = model.getValueAt(i, 1).toString();
-                    String propietario = model.getValueAt(i, 2).toString();
-                    String horarioRegistrado = model.getValueAt(i, 3).toString();
-                    String estadoUnidad = model.getValueAt(i, 4).toString();
-                    double ingresosBrutos = Double.parseDouble(model.getValueAt(i, 5).toString());
-                    double comisionPorcentaje = Double.parseDouble(model.getValueAt(i, 6).toString());
-                    double gananciaTotal = Double.parseDouble(model.getValueAt(i, 7).toString());
-
-                    boolean resultado = semanalmenteDAO.guardarSemanalmente(fecha, unidad, propietario, horarioRegistrado, estadoUnidad, ingresosBrutos, comisionPorcentaje, gananciaTotal);
-                    if (resultado) {
-                        guardadoCorrectamente = true;
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-            if (guardadoCorrectamente) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Los datos se han guardado correctamente en el reporte Semanal.");
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Hubo un error al guardar los datos en el reporte Semanal.");
-            }
-        }
-
-    
-    
-    
-    
-     */
 
     private void JpGestionIngresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpGestionIngresosMouseClicked
         GestionIngresosGUI ingresos = new GestionIngresosGUI();
@@ -1735,7 +1390,7 @@ public class ReportesGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_boxNombreActionPerformed
 
     private void boxTipoReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxTipoReporteActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_boxTipoReporteActionPerformed
 
     /**

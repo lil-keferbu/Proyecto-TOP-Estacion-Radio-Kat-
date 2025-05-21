@@ -70,7 +70,7 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNombre.setBackground(new java.awt.Color(0, 0, 25));
-        txtNombre.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -231,8 +231,6 @@ public class CrearCuentaGUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jLabel11.getAccessibleContext().setAccessibleName("Crear cuenta");
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1030, 90));
 
